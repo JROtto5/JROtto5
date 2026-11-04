@@ -34,6 +34,16 @@
   <a href="#linux"><img src="assets/nav/linux.svg" alt="Linux" height="38"></a>
 </p>
 
+
+<p align="center">
+  <a href="case-studies/dragon-front.md"><img src="assets/cards/dragon-front.svg" width="49%" alt="Dragon Front"></a>
+  <a href="https://github.com/JROtto5/dot-universe"><img src="assets/cards/dot-universe.svg" width="49%" alt="Dot Universe"></a>
+  <a href="https://github.com/JROtto5/nfl-edge"><img src="assets/cards/nfl-edge.svg" width="49%" alt="The Edge Board"></a>
+  <a href="https://github.com/JROtto5/draft-war-room"><img src="assets/cards/draft-war-room.svg" width="49%" alt="Draft War Room"></a>
+  <a href="https://github.com/JROtto5/sith-os"><img src="assets/cards/sith-os.svg" width="49%" alt="Sith OS"></a>
+  <a href="https://github.com/JROtto5/neon-spin"><img src="assets/cards/neon-spin.svg" width="49%" alt="NEON SPIN"></a>
+</p>
+
 ---
 
 ## Activity
