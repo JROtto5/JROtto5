@@ -35,11 +35,11 @@
   <path d="M0 268H1200" stroke="#ff2e63" stroke-opacity="0.5"/>
   <path d="M0 32H1200" stroke="#2ef2c8" stroke-opacity="0.35"/>
   <text x="40" y="24" class="k">// SYS.ONLINE · ARCH LINUX · KDE PLASMA</text>
-  <text x="1160" y="24" class="k" text-anchor="end">LVL 99 · BUILDER</text>
+  <text x="1160" y="24" class="k" text-anchor="end">STATUS: SHIPPING</text>
   <g class="flick" filter="url(#glow)">
     <text x="600" y="160" text-anchor="middle" class="t" fill="url(#title)">JROTTO5</text>
   </g>
-  <text x="600" y="212" text-anchor="middle" class="s">GAMES  ·  PRODUCTS  ·  LINUX  ·  WEIRD FUN THINGS</text>
+  <text x="600" y="212" text-anchor="middle" class="s">GAMES  ·  PRODUCTS  ·  LINUX  ·  CREATIVE CODE</text>
   <text x="40" y="292" class="k">&gt; ship it<tspan class="blink">_</tspan></text>
   <text x="1160" y="292" class="k" text-anchor="end" fill="#ff2e63" style="fill:#ff2e63">THE DARK SIDE OF SHIPPING</text>
 </svg>
