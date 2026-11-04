@@ -35,8 +35,8 @@
   <g filter="url(#glow)">
     <text x="600" y="152" text-anchor="middle" class="t" fill="url(#title)">JROTTO5</text>
   </g>
-  <text x="600" y="206" text-anchor="middle" class="s">GAME &amp; PRODUCT ENGINEER</text>
-  <text x="600" y="238" text-anchor="middle" class="k" style="fill:#9aa0b4">REAL-TIME NETCODE · DATA PLATFORMS · AI DEV TOOLING · LINUX</text>
-  <text x="40" y="290" class="k">OPEN TO: GAME DEV · PRODUCT ENGINEERING · LINUX/INFRA</text>
+  <text x="600" y="206" text-anchor="middle" class="s">PRODUCT ENGINEER · GAME DEV</text>
+  <text x="600" y="238" text-anchor="middle" class="k" style="fill:#9aa0b4">AI DEV TOOLING · DATA PLATFORMS · REAL-TIME NETCODE · LINUX</text>
+  <text x="40" y="290" class="k">OPEN TO: PRODUCT ENGINEERING · PLATFORM · GAME DEV</text>
   <text x="1160" y="290" class="k" text-anchor="end" style="fill:#ff2e63">I SHIP THINGS</text>
 </svg>

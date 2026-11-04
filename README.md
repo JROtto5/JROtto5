@@ -1,10 +1,10 @@
 <p align="center">
-  <img src="assets/banner.svg" alt="JROtto5: game and product engineer. Real-time netcode, data platforms, AI dev tooling, Linux." width="100%">
+  <img src="assets/banner.svg" alt="JROtto5: product engineer and game developer. AI dev tooling, data platforms, real-time netcode, Linux." width="100%">
 </p>
 
 <p align="center">
-  <b>I build real-time games and production data systems end to end: netcode and rendering, Postgres and AWS, down to the Linux kernel when it breaks.</b><br>
-  By day I build a production compliance platform and the AI review tooling around it. On nights and weekends I'm building a browser FPS with its own authoritative multiplayer server.
+  <b>I'm a product engineer who builds production systems end to end: AI dev tooling, data platforms on Postgres and AWS, and the real-time apps on top.</b><br>
+  By day I build a compliance platform and BLAZE 2, the AI code reviewer that gates every change to it. On nights and weekends I'm building a browser FPS with its own authoritative multiplayer server.
 </p>
 
 <p align="center">
@@ -16,51 +16,22 @@
 
 | | |
 |---|---|
-| **94k lines · 1,190+ commits** | **Dragon Front**: a browser FPS I built from an empty folder, solo, with AI pair-programming under my review |
-| **~5k-line authoritative server** | My own Node netcode: binary delta snapshots, client prediction, lag compensation, host migration |
 | **~4–6 min PR → verdict** | **BLAZE 2**, the AI code reviewer I built and run: thousands of reviews a month across a few dozen repos ([case study](case-studies/blaze-2.md)) |
 | **25+ Lambda jobs in production** | Supabase/Postgres business logic, customer reporting, an MCP server for AI agents |
 | **3,030 PRs · 88% merged** | The past year on GitHub: 6.2k commits across 41 repos, 242 active days |
+| **94k lines · 1,190+ commits** | **Dragon Front**: a browser FPS I built from an empty folder, solo, with AI pair-programming under my review |
+| **~5k-line authoritative server** | My own Node netcode: binary delta snapshots, client prediction, lag compensation, host migration |
 | **4 live apps you can open now** | DotSlayer, NEON SPIN, The Edge Board, Draft War Room, plus my own Arch Linux distro |
 
 <p align="center">
-  <a href="#dragon-front"><img src="assets/nav/dragon-front.svg" alt="Dragon Front" height="38"></a>
   <a href="#production-engineering"><img src="assets/nav/production.svg" alt="Production engineering" height="38"></a>
-  <a href="#selected-engineering-decisions"><img src="assets/nav/decisions.svg" alt="Engineering decisions" height="38"></a>
   <a href="#products"><img src="assets/nav/products.svg" alt="Products" height="38"></a>
-  <a href="#linux"><img src="assets/nav/linux.svg" alt="Linux" height="38"></a>
+  <a href="#selected-engineering-decisions"><img src="assets/nav/decisions.svg" alt="Engineering decisions" height="38"></a>
+  <a href="#dragon-front"><img src="assets/nav/dragon-front.svg" alt="Dragon Front" height="38"></a>
   <a href="#games--creative-code"><img src="assets/nav/games.svg" alt="Games & creative code" height="38"></a>
+  <a href="#linux"><img src="assets/nav/linux.svg" alt="Linux" height="38"></a>
   <a href="#activity"><img src="assets/nav/activity.svg" alt="Activity" height="38"></a>
 </p>
-
----
-
-## Dragon Front
-
-<p align="center">
-  <img src="assets/dragon-front-trailer.webp" alt="Dragon Front trailer: Forbidden Court, Neon Kowloon, Great Wall Pass" width="100%">
-</p>
-
-**A fast, boots-on-the-ground military FPS that runs in the browser.** Jade Dragons vs Crimson Tigers, 2049. It has Steamworks integration, is in pre-release, and its source stays private until launch. There's no engine: Three.js plus plain ES modules, so I own the render loop and the network loop.
-
-| | |
-|---|---|
-| 📈 **Scale** | **1,190+ commits · 324 modules · 94k lines of JS · 150 test scripts** · 35 design docs (art bible, balance, campaign scripts, store page, release checklist) |
-| 🌐 **Netcode** | My own **authoritative Node match server** (~5k lines): binary delta-snapshot codec, client prediction, lag compensation, host migration, server browser, parties, spectator/caster mode, bot backfill, and a packaged dedicated server |
-| 🎮 **Content** | 10-mission campaign with cutscenes · **20 maps** · 52 weapons · Domination, Hardpoint, S&D, CTF, Gun Game, Infected, Gunfight 2v2 · Ranked seasons · **Dynasty Defense** co-op horde · **Ground War**: 20v20 with bot backfill, five flags, vehicles |
-| 🤖 **AI** | Squad-level bot director (attack/defend orders) and per-bot LOD (frustum + distance tiers) for 40-combatant Ground War matches |
-| ✨ **Rendering** | Custom post pipeline (GTAO, bloom, SMAA, color grade), procedural PBR textures, HDRI lighting, per-map weather |
-| 🕹️ **Platforms** | Gamepad with aim assist and rumble · Steamworks, Workshop and Steam Input · Steam Deck mode · touch controls for phones |
-| 🧪 **Quality** | Headless bots that play matches and screenshot them · map validators · perf harnesses · a deterministic trailer pipeline (the clip above is its output) |
-| 📜 **Licensing** | Every third-party asset is logged with its source and license, with CC0/CC BY credits in game |
-
-<p align="center">
-  <img src="assets/dragon-front-keyart.jpg" width="98.5%" alt="Dragon Front key art">
-  <img src="assets/dragon-front-kowloon.jpg" width="49%" alt="Neon Kowloon in a thunderstorm">
-  <img src="assets/dragon-front-groundwar.jpg" width="49%" alt="Ground War on Yangtze Front">
-</p>
-
-**→ [Read the engineering case study](case-studies/dragon-front.md)**: the netcode, the bot AI, rendering budgets and automated playtesting. I'm happy to demo it live.
 
 ---
 
@@ -77,20 +48,6 @@
 - **Hardened reliability**: default-deny grants, migration gates that replay every schema change in Docker, CI drift guards, paging alarms, and golden-output diff tests before any change to a customer-facing path.
 
 <sub>Proprietary work, so no code or customer details here. I'm glad to walk through the architecture.</sub>
-
----
-
-## Selected engineering decisions
-
-**Authoritative server, not peer-to-peer** *(Dragon Front)*. Browser clients can't be trusted, and a P2P host has an advantage that ruins ranked play. The server owns the game state and sends binary delta snapshots instead of JSON. Clients predict locally while the server rewinds time to validate hits. The trade-off: I run servers and handle host migration myself.
-
-**Business logic in Postgres, not in the clients** *(day job)*. Emails, the partner API and dashboards all call the same RPCs, so they can't disagree. SQL is harder to unit-test, so every migration is replayed in Docker in CI before it ships.
-
-**Shadow mode before automation** *(day job)*. Every risky automation first records what it *would* do next to the human decision. I turn it on only after its precision is measured.
-
-**Make the AI show its work in a form it can lose** *(BLAZE 2)*. A finding has to say what observation would prove it wrong, then survive a verification pass. Authors refute findings with evidence, so false positives become a number I can measure and drive down.
-
-**Freeze predictions at publish time** *(The Edge Board)*. A forecasting system is only credible if it can't revise history. Every call is stored when it appears and graded against the final result and the closing line, and per-signal hit rates are public, misses included.
 
 ---
 
@@ -122,12 +79,46 @@ A sports forecasting system for the NFL and college football with a **public, se
 
 ---
 
-## Linux
+## Selected engineering decisions
 
-### [SITH OS](https://github.com/JROtto5/sith-os): my own Arch Linux distribution
-It's built with `archiso`: an installable live ISO with a Calamares graphical installer, **~240 curated packages and 11 custom commands**, themed end to end from bootloader to Plymouth, SDDM, KDE Plasma and the Kitty terminal.
+**Authoritative server, not peer-to-peer** *(Dragon Front)*. Browser clients can't be trusted, and a P2P host has an advantage that ruins ranked play. The server owns the game state and sends binary delta snapshots instead of JSON. Clients predict locally while the server rewinds time to validate hits. The trade-off: I run servers and handle host migration myself.
 
-I daily-drive Arch on a 4-monitor RTX 5070 Ti workstation, write my own **Plasma 6 widgets** and **KWin effect patches**, and debug the kernel/driver/compositor stack myself. One example: tracing a multi-monitor lag problem to an nvidia-open driver regression that dropped the GPU's PCIe link to Gen 1.
+**Business logic in Postgres, not in the clients** *(day job)*. Emails, the partner API and dashboards all call the same RPCs, so they can't disagree. SQL is harder to unit-test, so every migration is replayed in Docker in CI before it ships.
+
+**Shadow mode before automation** *(day job)*. Every risky automation first records what it *would* do next to the human decision. I turn it on only after its precision is measured.
+
+**Make the AI show its work in a form it can lose** *(BLAZE 2)*. A finding has to say what observation would prove it wrong, then survive a verification pass. Authors refute findings with evidence, so false positives become a number I can measure and drive down.
+
+**Freeze predictions at publish time** *(The Edge Board)*. A forecasting system is only credible if it can't revise history. Every call is stored when it appears and graded against the final result and the closing line, and per-signal hit rates are public, misses included.
+
+---
+
+## Dragon Front
+
+<p align="center">
+  <img src="assets/dragon-front-trailer.webp" alt="Dragon Front trailer: Forbidden Court, Neon Kowloon, Great Wall Pass" width="100%">
+</p>
+
+**A fast, boots-on-the-ground military FPS that runs in the browser.** Jade Dragons vs Crimson Tigers, 2049. It has Steamworks integration, is in pre-release, and its source stays private until launch. There's no engine: Three.js plus plain ES modules, so I own the render loop and the network loop.
+
+| | |
+|---|---|
+| 📈 **Scale** | **1,190+ commits · 324 modules · 94k lines of JS · 150 test scripts** · 35 design docs (art bible, balance, campaign scripts, store page, release checklist) |
+| 🌐 **Netcode** | My own **authoritative Node match server** (~5k lines): binary delta-snapshot codec, client prediction, lag compensation, host migration, server browser, parties, spectator/caster mode, bot backfill, and a packaged dedicated server |
+| 🎮 **Content** | 10-mission campaign with cutscenes · **20 maps** · 52 weapons · Domination, Hardpoint, S&D, CTF, Gun Game, Infected, Gunfight 2v2 · Ranked seasons · **Dynasty Defense** co-op horde · **Ground War**: 20v20 with bot backfill, five flags, vehicles |
+| 🤖 **AI** | Squad-level bot director (attack/defend orders) and per-bot LOD (frustum + distance tiers) for 40-combatant Ground War matches |
+| ✨ **Rendering** | Custom post pipeline (GTAO, bloom, SMAA, color grade), procedural PBR textures, HDRI lighting, per-map weather |
+| 🕹️ **Platforms** | Gamepad with aim assist and rumble · Steamworks, Workshop and Steam Input · Steam Deck mode · touch controls for phones |
+| 🧪 **Quality** | Headless bots that play matches and screenshot them · map validators · perf harnesses · a deterministic trailer pipeline (the clip above is its output) |
+| 📜 **Licensing** | Every third-party asset is logged with its source and license, with CC0/CC BY credits in game |
+
+<p align="center">
+  <img src="assets/dragon-front-keyart.jpg" width="98.5%" alt="Dragon Front key art">
+  <img src="assets/dragon-front-kowloon.jpg" width="49%" alt="Neon Kowloon in a thunderstorm">
+  <img src="assets/dragon-front-groundwar.jpg" width="49%" alt="Ground War on Yangtze Front">
+</p>
+
+**→ [Read the engineering case study](case-studies/dragon-front.md)**: the netcode, the bot AI, rendering budgets and automated playtesting. I'm happy to demo it live.
 
 ---
 
@@ -162,6 +153,15 @@ A **4-minute animated short** where every frame is drawn in Python (pycairo + nu
 
 ---
 
+## Linux
+
+### [SITH OS](https://github.com/JROtto5/sith-os): my own Arch Linux distribution
+It's built with `archiso`: an installable live ISO with a Calamares graphical installer, **~240 curated packages and 11 custom commands**, themed end to end from bootloader to Plymouth, SDDM, KDE Plasma and the Kitty terminal.
+
+I daily-drive Arch on a 4-monitor RTX 5070 Ti workstation, write my own **Plasma 6 widgets** and **KWin effect patches**, and debug the kernel/driver/compositor stack myself. One example: tracing a multi-monitor lag problem to an nvidia-open driver regression that dropped the GPU's PCIe link to Gen 1.
+
+---
+
 ## Activity
 
 <p align="center">
@@ -185,5 +185,5 @@ A **4-minute animated short** where every frame is drawn in Python (pycairo + nu
 - **I use AI tools with guardrails**, and I can tell you exactly where they help and where they don't.
 
 <p align="center">
-  <b>Open to game dev · product engineering · Linux/infra roles.</b> I'm happy to demo Dragon Front or walk through any architecture above.
+  <b>Open to product engineering, platform and game dev roles.</b> I'm happy to demo Dragon Front or walk through any architecture above.
 </p>
