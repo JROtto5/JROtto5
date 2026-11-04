@@ -4,7 +4,7 @@
 .p{animation:p 3.2s ease-in-out infinite}@keyframes p{0%,100%{stroke-opacity:.55}50%{stroke-opacity:1}}</style></defs>
 <path d="M8 1H128V29L120 37H1V9Z" fill="#0b0b14"/>
 <path class="p" d="M8 1H128V29L120 37H1V9Z" fill="none" stroke="#ff2e63" stroke-width="1.5" filter="url(#g)"/>
-<text x="14" y="23.5" class="n" fill="#ff2e63">06</text>
+<text x="14" y="23.5" class="n" fill="#ff2e63">08</text>
 <rect x="36" y="11" width="1.5" height="16" fill="#ff2e63" fill-opacity=".6"/>
 <text x="46" y="24" class="l">LINUX</text>
 </svg>

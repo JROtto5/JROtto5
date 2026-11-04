@@ -3,8 +3,8 @@
 <style>.n{font:700 11px 'DejaVu Sans Mono',Consolas,monospace;letter-spacing:1px}.l{font:700 13px 'DejaVu Sans Mono',Consolas,monospace;letter-spacing:2.5px;fill:#e6e6ef}
 .p{animation:p 3.2s ease-in-out infinite}@keyframes p{0%,100%{stroke-opacity:.55}50%{stroke-opacity:1}}</style></defs>
 <path d="M8 1H183V29L175 37H1V9Z" fill="#0b0b14"/>
-<path class="p" d="M8 1H183V29L175 37H1V9Z" fill="none" stroke="#2ef2c8" stroke-width="1.5" filter="url(#g)"/>
-<text x="14" y="23.5" class="n" fill="#2ef2c8">01</text>
-<rect x="36" y="11" width="1.5" height="16" fill="#2ef2c8" fill-opacity=".6"/>
+<path class="p" d="M8 1H183V29L175 37H1V9Z" fill="none" stroke="#ff2e63" stroke-width="1.5" filter="url(#g)"/>
+<text x="14" y="23.5" class="n" fill="#ff2e63">04</text>
+<rect x="36" y="11" width="1.5" height="16" fill="#ff2e63" fill-opacity=".6"/>
 <text x="46" y="24" class="l">PRODUCTION</text>
 </svg>

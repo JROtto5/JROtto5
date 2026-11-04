@@ -24,14 +24,69 @@
 | **4 live apps you can open now** | DotSlayer, NEON SPIN, The Edge Board, Draft War Room, plus my own Arch Linux distro |
 
 <p align="center">
+  <a href="#activity"><img src="assets/nav/activity.svg" alt="Activity" height="38"></a>
+  <a href="#how-id-work-with-your-team"><img src="assets/nav/howiwork.svg" alt="How I work" height="38"></a>
+  <a href="#dragon-front"><img src="assets/nav/dragon-front.svg" alt="Dragon Front" height="38"></a>
   <a href="#production-engineering"><img src="assets/nav/production.svg" alt="Production engineering" height="38"></a>
   <a href="#products"><img src="assets/nav/products.svg" alt="Products" height="38"></a>
   <a href="#selected-engineering-decisions"><img src="assets/nav/decisions.svg" alt="Engineering decisions" height="38"></a>
-  <a href="#dragon-front"><img src="assets/nav/dragon-front.svg" alt="Dragon Front" height="38"></a>
   <a href="#games--creative-code"><img src="assets/nav/games.svg" alt="Games & creative code" height="38"></a>
   <a href="#linux"><img src="assets/nav/linux.svg" alt="Linux" height="38"></a>
-  <a href="#activity"><img src="assets/nav/activity.svg" alt="Activity" height="38"></a>
 </p>
+
+---
+
+## Activity
+
+<p align="center">
+  <img src="assets/stats.svg" width="100%" alt="Contribution telemetry, last 12 months">
+</p>
+<p align="center">
+  <img src="assets/activity.svg" width="49%" alt="Contributions per month">
+  <img src="assets/breakdown.svg" width="49%" alt="Activity breakdown: commits, PRs, issues, reviews">
+</p>
+
+<sub>Many of these PRs are opened by coding agents I orchestrate. Every one goes through the BLAZE 2 review gate and a human approval before it merges. Generated from the GitHub API by <a href="tools/gen_stats.py">tools/gen_stats.py</a>.</sub>
+
+---
+
+## How I'd work with your team
+
+- **I write it down first.** Dragon Front has 35 design docs. At work, changes to customer-facing paths start with a short design note and a golden-output diff.
+- **I test like a player.** Headless bots play my game and screenshot every match; I'd bring that habit to your QA and perf budgets.
+- **I measure before I automate.** Shadow mode, precision targets, then rollout.
+- **I work across the whole stack**: rendering and netcode, Postgres and AWS, kernel and driver debugging.
+- **I use AI tools with guardrails**, and I can tell you exactly where they help and where they don't.
+
+
+---
+
+## Dragon Front
+
+<p align="center">
+  <img src="assets/dragon-front-trailer.webp" alt="Dragon Front trailer: Forbidden Court, Neon Kowloon, Great Wall Pass" width="100%">
+</p>
+
+**A fast, boots-on-the-ground military FPS that runs in the browser.** Jade Dragons vs Crimson Tigers, 2049. It has Steamworks integration, is in pre-release, and its source stays private until launch. There's no engine: Three.js plus plain ES modules, so I own the render loop and the network loop.
+
+| | |
+|---|---|
+| 📈 **Scale** | **1,190+ commits · 324 modules · 94k lines of JS · 150 test scripts** · 35 design docs (art bible, balance, campaign scripts, store page, release checklist) |
+| 🌐 **Netcode** | My own **authoritative Node match server** (~5k lines): binary delta-snapshot codec, client prediction, lag compensation, host migration, server browser, parties, spectator/caster mode, bot backfill, and a packaged dedicated server |
+| 🎮 **Content** | 10-mission campaign with cutscenes · **20 maps** · 52 weapons · Domination, Hardpoint, S&D, CTF, Gun Game, Infected, Gunfight 2v2 · Ranked seasons · **Dynasty Defense** co-op horde · **Ground War**: 20v20 with bot backfill, five flags, vehicles |
+| 🤖 **AI** | Squad-level bot director (attack/defend orders) and per-bot LOD (frustum + distance tiers) for 40-combatant Ground War matches |
+| ✨ **Rendering** | Custom post pipeline (GTAO, bloom, SMAA, color grade), procedural PBR textures, HDRI lighting, per-map weather |
+| 🕹️ **Platforms** | Gamepad with aim assist and rumble · Steamworks, Workshop and Steam Input · Steam Deck mode · touch controls for phones |
+| 🧪 **Quality** | Headless bots that play matches and screenshot them · map validators · perf harnesses · a deterministic trailer pipeline (the clip above is its output) |
+| 📜 **Licensing** | Every third-party asset is logged with its source and license, with CC0/CC BY credits in game |
+
+<p align="center">
+  <img src="assets/dragon-front-keyart.jpg" width="98.5%" alt="Dragon Front key art">
+  <img src="assets/dragon-front-kowloon.jpg" width="49%" alt="Neon Kowloon in a thunderstorm">
+  <img src="assets/dragon-front-groundwar.jpg" width="49%" alt="Ground War on Yangtze Front">
+</p>
+
+**→ [Read the engineering case study](case-studies/dragon-front.md)**: the netcode, the bot AI, rendering budgets and automated playtesting. I'm happy to demo it live.
 
 ---
 
@@ -93,35 +148,6 @@ A sports forecasting system for the NFL and college football with a **public, se
 
 ---
 
-## Dragon Front
-
-<p align="center">
-  <img src="assets/dragon-front-trailer.webp" alt="Dragon Front trailer: Forbidden Court, Neon Kowloon, Great Wall Pass" width="100%">
-</p>
-
-**A fast, boots-on-the-ground military FPS that runs in the browser.** Jade Dragons vs Crimson Tigers, 2049. It has Steamworks integration, is in pre-release, and its source stays private until launch. There's no engine: Three.js plus plain ES modules, so I own the render loop and the network loop.
-
-| | |
-|---|---|
-| 📈 **Scale** | **1,190+ commits · 324 modules · 94k lines of JS · 150 test scripts** · 35 design docs (art bible, balance, campaign scripts, store page, release checklist) |
-| 🌐 **Netcode** | My own **authoritative Node match server** (~5k lines): binary delta-snapshot codec, client prediction, lag compensation, host migration, server browser, parties, spectator/caster mode, bot backfill, and a packaged dedicated server |
-| 🎮 **Content** | 10-mission campaign with cutscenes · **20 maps** · 52 weapons · Domination, Hardpoint, S&D, CTF, Gun Game, Infected, Gunfight 2v2 · Ranked seasons · **Dynasty Defense** co-op horde · **Ground War**: 20v20 with bot backfill, five flags, vehicles |
-| 🤖 **AI** | Squad-level bot director (attack/defend orders) and per-bot LOD (frustum + distance tiers) for 40-combatant Ground War matches |
-| ✨ **Rendering** | Custom post pipeline (GTAO, bloom, SMAA, color grade), procedural PBR textures, HDRI lighting, per-map weather |
-| 🕹️ **Platforms** | Gamepad with aim assist and rumble · Steamworks, Workshop and Steam Input · Steam Deck mode · touch controls for phones |
-| 🧪 **Quality** | Headless bots that play matches and screenshot them · map validators · perf harnesses · a deterministic trailer pipeline (the clip above is its output) |
-| 📜 **Licensing** | Every third-party asset is logged with its source and license, with CC0/CC BY credits in game |
-
-<p align="center">
-  <img src="assets/dragon-front-keyart.jpg" width="98.5%" alt="Dragon Front key art">
-  <img src="assets/dragon-front-kowloon.jpg" width="49%" alt="Neon Kowloon in a thunderstorm">
-  <img src="assets/dragon-front-groundwar.jpg" width="49%" alt="Ground War on Yangtze Front">
-</p>
-
-**→ [Read the engineering case study](case-studies/dragon-front.md)**: the netcode, the bot AI, rendering budgets and automated playtesting. I'm happy to demo it live.
-
----
-
 ## Games & creative code
 
 <table>
@@ -161,29 +187,6 @@ It's built with `archiso`: an installable live ISO with a Calamares graphical in
 I daily-drive Arch on a 4-monitor RTX 5070 Ti workstation, write my own **Plasma 6 widgets** and **KWin effect patches**, and debug the kernel/driver/compositor stack myself. One example: tracing a multi-monitor lag problem to an nvidia-open driver regression that dropped the GPU's PCIe link to Gen 1.
 
 ---
-
-## Activity
-
-<p align="center">
-  <img src="assets/stats.svg" width="100%" alt="Contribution telemetry, last 12 months">
-</p>
-<p align="center">
-  <img src="assets/activity.svg" width="49%" alt="Contributions per month">
-  <img src="assets/breakdown.svg" width="49%" alt="Activity breakdown: commits, PRs, issues, reviews">
-</p>
-
-<sub>Many of these PRs are opened by coding agents I orchestrate. Every one goes through the BLAZE 2 review gate and a human approval before it merges. Generated from the GitHub API by <a href="tools/gen_stats.py">tools/gen_stats.py</a>.</sub>
-
----
-
-## How I'd work with your team
-
-- **I write it down first.** Dragon Front has 35 design docs. At work, changes to customer-facing paths start with a short design note and a golden-output diff.
-- **I test like a player.** Headless bots play my game and screenshot every match; I'd bring that habit to your QA and perf budgets.
-- **I measure before I automate.** Shadow mode, precision targets, then rollout.
-- **I work across the whole stack**: rendering and netcode, Postgres and AWS, kernel and driver debugging.
-- **I use AI tools with guardrails**, and I can tell you exactly where they help and where they don't.
-
 <p align="center">
   <b>Open to product engineering, platform and game dev roles.</b> I'm happy to demo Dragon Front or walk through any architecture above.
 </p>
