@@ -36,6 +36,7 @@
 
 
 <p align="center">
+  <a href="https://github.com/JROtto5/crucible"><img src="assets/cards/crucible.svg" width="49%" alt="crucible"></a>
   <a href="case-studies/dragon-front.md"><img src="assets/cards/dragon-front.svg" width="49%" alt="Dragon Front"></a>
   <a href="https://github.com/JROtto5/dot-universe"><img src="assets/cards/dot-universe.svg" width="49%" alt="Dot Universe"></a>
   <a href="https://github.com/JROtto5/nfl-edge"><img src="assets/cards/nfl-edge.svg" width="49%" alt="The Edge Board"></a>
@@ -137,6 +138,8 @@ A sports forecasting system for the NFL and college football with a **public, se
 </td>
 </tr>
 </table>
+
+**🔬 [crucible](https://github.com/JROtto5/crucible)**: my open-source, evidence-first AI reviewer for upstream PRs. Deterministic checks run first, then a reviewer on a different model from the author, then a verification pass that tries to *disprove* every finding. Verdicts are pinned to one commit, the author answers every finding, and it never posts: a human submits. I use it on every open-source contribution I make.
 
 **🏈 [Draft War Room](https://github.com/JROtto5/draft-war-room)**: a fantasy-football decision tool. It runs Monte Carlo survival and title odds, builds a start/sit consensus across three providers, and has a waiver radar and trade sims. It's an MIT-licensed, zero-build PWA that auto-deploys to Vercel.
 

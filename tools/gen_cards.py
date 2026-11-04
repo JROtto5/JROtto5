@@ -6,6 +6,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEAL, PINK = "#2ef2c8", "#ff2e63"
 LANG = {"TypeScript": "#3178c6", "JavaScript": "#f1e05a", "HTML": "#e34c26", "Shell": "#89e051", "Python": "#3572A5"}
 CARDS = [
+  ("crucible", "CRUCIBLE", "Evidence-first AI PR reviewer: a different-model reviewer, a pass that tries to disprove every finding, commit-pinned verdicts.", "Python · Claude · gh", "Python", "◆ NEW", TEAL),
   ("dragon-front", "DRAGON FRONT", "Browser FPS with my own authoritative netcode server: 94k lines, 20 maps, campaign, Steamworks.", "Three.js · Node netcode", "JavaScript", "◆ FLAGSHIP", PINK),
   ("dot-universe", "DOT UNIVERSE", "Roguelike shooter + idle game on one account, with cross-game progression and global leaderboards.", "Next.js · Phaser 3 · Supabase", "TypeScript", "▶ PLAY", TEAL),
   ("nfl-edge", "THE EDGE BOARD", "Sports forecasting with ~30 measured signals, its own power ratings and a public, auto-graded track record.", "Vercel · cron · web push", "JavaScript", "● LIVE", PINK),
