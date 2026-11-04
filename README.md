@@ -1,178 +1,160 @@
 <p align="center">
-  <img src="assets/banner.svg" alt="JROtto5: games, products, Linux" width="100%">
+  <img src="assets/banner.svg" alt="JROtto5: game and product engineer. Real-time netcode, data platforms, AI dev tooling, Linux." width="100%">
 </p>
 
 <p align="center">
-  <b>I build games I actually want to play and products people actually use, and I finish them.</b><br>
-  A 75k-line 3D shooter with its own netcode · live analytics apps · production cloud platforms · my own Linux distro · a short film rendered entirely from code.
+  <b>I build real-time games and production data systems end to end: netcode and rendering, Postgres and AWS, down to the Linux kernel when it breaks.</b><br>
+  By day I build a production compliance platform and the AI review tooling around it. On nights and weekends I'm building a browser FPS with its own authoritative multiplayer server.
 </p>
 
 <p align="center">
-  <a href="#-flagship-dragon-front">🐉 Dragon Front</a> ·
-  <a href="#-products">🚀 Products</a> ·
-  <a href="#-production-engineering-day-job">🏢 Day Job</a> ·
-  <a href="#-linux">🐧 Linux</a> ·
-  <a href="#-games--creative-code">🎨 Games & Creative Code</a> ·
-  <a href="#-how-i-work">⚡ How I Work</a>
-</p>
-
-<p align="center">
-  <a href="https://jrotto5.github.io/neon-spin/"><img src="https://img.shields.io/badge/▶_PLAY-NEON_SPIN-ff2e63?style=for-the-badge"></a>
   <a href="https://www.dotslayer.live"><img src="https://img.shields.io/badge/▶_PLAY-DOTSLAYER-00c8ff?style=for-the-badge&labelColor=0b0b12"></a>
+  <a href="https://jrotto5.github.io/neon-spin/"><img src="https://img.shields.io/badge/▶_PLAY-NEON_SPIN-ff2e63?style=for-the-badge&labelColor=0b0b12"></a>
   <a href="https://nfl-edge-kappa.vercel.app"><img src="https://img.shields.io/badge/●_LIVE-THE_EDGE_BOARD-2ef2c8?style=for-the-badge&labelColor=0b0b12"></a>
-  <a href="https://github.com/JROtto5/sith-os"><img src="https://img.shields.io/badge/⬇_ISO-SITH_OS-8b5cf6?style=for-the-badge&labelColor=0b0b12"></a>
+  <a href="https://github.com/JROtto5/sith-os"><img src="https://img.shields.io/badge/SOURCE-SITH_OS-8b5cf6?style=for-the-badge&labelColor=0b0b12"></a>
 </p>
 
+| | |
+|---|---|
+| **75k+ lines · 1,190+ commits** | **Dragon Front**: a browser FPS I built solo from an empty folder |
+| **~5k-line authoritative server** | My own Node netcode: binary delta snapshots, client prediction, lag compensation, host migration |
+| **~4–6 min PR → verdict** | **BLAZE 2**, the AI code reviewer I built and run: thousands of reviews a month across a few dozen repos ([case study](case-studies/blaze-2.md)) |
+| **25+ Lambda jobs in production** | Supabase/Postgres business logic, customer reporting, an MCP server for AI agents |
+| **3,030 PRs · 88% merged** | The past year on GitHub: 6.2k commits across 41 repos, 242 active days |
+| **4 live apps you can open now** | DotSlayer, NEON SPIN, The Edge Board, Draft War Room, plus my own Arch Linux distro |
+
 <p align="center">
-  <img src="https://img.shields.io/badge/JavaScript-0b0b12?style=for-the-badge&logo=javascript&logoColor=f7df1e">
-  <img src="https://img.shields.io/badge/Three.js-0b0b12?style=for-the-badge&logo=threedotjs&logoColor=white">
-  <img src="https://img.shields.io/badge/Python-0b0b12?style=for-the-badge&logo=python&logoColor=3776ab">
-  <img src="https://img.shields.io/badge/TypeScript-0b0b12?style=for-the-badge&logo=typescript&logoColor=3178c6">
-  <img src="https://img.shields.io/badge/Postgres-0b0b12?style=for-the-badge&logo=postgresql&logoColor=4169e1">
-  <img src="https://img.shields.io/badge/AWS-0b0b12?style=for-the-badge&logo=amazonwebservices&logoColor=ff9900">
-  <img src="https://img.shields.io/badge/Vercel-0b0b12?style=for-the-badge&logo=vercel&logoColor=white">
-  <img src="https://img.shields.io/badge/Arch_Linux-0b0b12?style=for-the-badge&logo=archlinux&logoColor=1793d1">
-  <img src="https://img.shields.io/badge/KDE_Plasma-0b0b12?style=for-the-badge&logo=kde&logoColor=1d99f3">
-  <img src="https://img.shields.io/badge/FFmpeg-0b0b12?style=for-the-badge&logo=ffmpeg&logoColor=5cb85c">
-  <img src="https://img.shields.io/badge/Claude_API-0b0b12?style=for-the-badge&logo=anthropic&logoColor=d4a27f">
+  <a href="#dragon-front">Dragon Front</a> ·
+  <a href="#production-engineering">Production engineering</a> ·
+  <a href="#selected-engineering-decisions">Engineering decisions</a> ·
+  <a href="#products">Products</a> ·
+  <a href="#linux">Linux</a> ·
+  <a href="#games--creative-code">Games &amp; creative code</a> ·
+  <a href="#activity">Activity</a>
 </p>
 
 ---
 
-## 🐉 Flagship: Dragon Front
+## Dragon Front
 
 <p align="center">
   <img src="assets/dragon-front-trailer.webp" alt="Dragon Front trailer: Forbidden Court, Neon Kowloon, Great Wall Pass" width="100%">
 </p>
 
-**A Modern Warfare-style FPS that runs in the browser. I designed and built it from an empty folder, and I'm aiming it at Steam.**
-Jade Dragons vs Crimson Tigers, 2049. Three.js plus plain ES modules, **no build step**, no engine.
+**A fast, boots-on-the-ground military FPS that runs in the browser.** Jade Dragons vs Crimson Tigers, 2049. It has Steamworks integration, is in pre-release, and its source stays private until launch. There's no engine: Three.js plus plain ES modules, so I own the render loop and the network loop.
 
 | | |
 |---|---|
-| 🎮 **Modes** | 10-mission story **campaign** with cutscenes · Domination, Hardpoint, S&D, CTF, Gun Game, Infected, Gunfight 2v2 · **Ranked** seasons · **Dynasty Defense** co-op horde with Titan bosses · **Ground War**: 20v20, five flags, vehicles |
-| 🌐 **Online** | My own **authoritative Node match server** (5k lines): binary delta-snapshot netcode, client prediction and lag compensation, host migration, server browser, parties, spectator/caster mode, bot backfill and a packaged dedicated server |
-| 🗺️ **World** | **17 maps** (Forbidden Court, Neon Kowloon, Great Wall Pass, Yangtze Front…) built for boost movement and verticality |
-| 🔫 **Arsenal** | 28 guns · gunsmith with attachments and camos · classes · perks · killstreaks (Sky Lantern, Dragon's Breath, guided Dragon Missile) · 40 levels plus prestige |
-| 🤖 **AI** | Squad-level bot director (attack/defend orders) · per-bot LOD (frustum + distance tiers) so 40 fighters keep the frame rate up |
-| ✨ **Rendering** | Custom post pipeline (GTAO, bloom, SMAA, color grade) · procedural PBR textures · HDRI lighting · per-map weather (thunderstorms, blossom storms) |
-| 🕹️ **Platforms** | Full gamepad support with aim assist and rumble · Steamworks, Workshop and Steam Input wired up · Steam Deck mode · touch controls for phones |
-| 🧪 **Quality** | Headless bots that play matches and screenshot them · map validators · perf harnesses that measure 40-combatant frame times · a tracked bug list and release checklist |
-| 📜 **Licensing** | Every third-party asset is logged with its source and license (CC0 / CC BY with in-game credits); procedural or first-party art where no clean source existed |
-| 📈 **Scale** | **1,190+ commits · 250+ modules · 75k+ lines of JS** · 30+ design docs (art bible, balance, campaign scripts, store page) |
+| 📈 **Scale** | **1,190+ commits · 250+ modules · 75k+ lines of JS** · 30+ design docs (art bible, balance, campaign scripts, store page, release checklist) |
+| 🌐 **Netcode** | My own **authoritative Node match server** (~5k lines): binary delta-snapshot codec, client prediction, lag compensation, host migration, server browser, parties, spectator/caster mode, bot backfill, and a packaged dedicated server |
+| 🎮 **Content** | 10-mission campaign with cutscenes · **17 maps** · Domination, Hardpoint, S&D, CTF, Gun Game, Infected, Gunfight 2v2 · Ranked seasons · **Dynasty Defense** co-op horde · **Ground War**: 20v20 with bot backfill, five flags, vehicles |
+| 🤖 **AI** | Squad-level bot director (attack/defend orders) and per-bot LOD (frustum + distance tiers), frame-time budgeted for 40 combatants |
+| ✨ **Rendering** | Custom post pipeline (GTAO, bloom, SMAA, color grade), procedural PBR textures, HDRI lighting, per-map weather |
+| 🕹️ **Platforms** | Gamepad with aim assist and rumble · Steamworks, Workshop and Steam Input · Steam Deck mode · touch controls for phones |
+| 🧪 **Quality** | Headless bots that play matches and screenshot them · map validators · perf harnesses · a deterministic trailer pipeline (the clip above is its output) |
+| 📜 **Licensing** | Every third-party asset is logged with its source and license, with CC0/CC BY credits in game |
 
 <p align="center">
   <img src="assets/dragon-front-keyart.jpg" width="98.5%" alt="Dragon Front key art">
   <img src="assets/dragon-front-kowloon.jpg" width="49%" alt="Neon Kowloon in a thunderstorm">
   <img src="assets/dragon-front-groundwar.jpg" width="49%" alt="Ground War on Yangtze Front">
-  <img src="assets/dragon-front-menu.jpg" width="98.5%" alt="Main menu">
 </p>
 
-<sub>🎥 The trailer above is captured by the game's own scripted camera pipeline, rendered frame by frame from live bot matches. 🔒 Source is private while it heads to Steam; I'm happy to demo it live or walk through the architecture.</sub>
+**→ [Read the engineering case study](case-studies/dragon-front.md)**: the netcode, the bot AI, rendering budgets and automated playtesting. I'm happy to demo it live.
 
 ---
 
-## 🚀 Products
+## Production engineering
+
+**Day job.** I build and run a production compliance and remediation platform, and the AI development tooling around it.
+
+- **Turned a spreadsheet-and-script operation into a production platform.** Postgres (Supabase) holds the business logic in SECURITY DEFINER RPCs behind row-level security. A fleet of **25+ scheduled and queue-driven AWS Lambda jobs** (Python, SAM, SQS, EventBridge) does the work, and thin TypeScript/React clients render what the database decides.
+- **Built [BLAZE 2](case-studies/blaze-2.md), an AI code reviewer.** It takes PRs and design plans to "safe to approve" in **~4–6 minutes**, at thousands of reviews a month. It runs parallel reviewers and a verification pass, and every finding must state what would disprove it. Verdicts are tied to the exact head commit, and an approval gate makes sure **a human always approves**. It deploys itself with canary reviews and automatic rollback.
+- **Built the orchestration for parallel coding agents**: isolated clones, a capacity-guarded launch queue, stall detection, merge pipelines and daily ticket reconciliation. Every change goes through the AI review gate and human approval before it merges.
+- **Shipped customer-facing reporting end to end**: per-customer email jobs, a partner push API and web dashboards. They all read **one shared classifier**, so every surface tells the customer the same thing.
+- **Built a live event pipeline** that gets flag events to downstream systems in about 3 minutes. A minute-by-minute safety-net feed ran in shadow first, at over 99% agreement, before go-live.
+- **Built the data layer**: backtested prediction models with calibrated confidence intervals, nightly scoring and weekly recalibration with drift alarms, and an **MCP server** that gives AI agents read-only reporting access with scoped keys.
+- **Hardened reliability**: default-deny grants, migration gates that replay every schema change in Docker, CI drift guards, paging alarms, and golden-output diff tests before any change to a customer-facing path.
+
+<sub>Proprietary work, so no code or customer details here. I'm glad to walk through the architecture.</sub>
+
+---
+
+## Selected engineering decisions
+
+**Authoritative server, not peer-to-peer** *(Dragon Front)*. Browser clients can't be trusted, and a P2P host has an advantage that ruins ranked play. The server owns the game state and sends binary delta snapshots instead of JSON. Clients predict locally while the server rewinds time to validate hits. The trade-off: I run servers and handle host migration myself.
+
+**Business logic in Postgres, not in the clients** *(day job)*. Emails, the partner API and dashboards all call the same RPCs, so they can't disagree. SQL is harder to unit-test, so every migration is replayed in Docker in CI before it ships.
+
+**Shadow mode before automation** *(day job)*. Every risky automation first records what it *would* do next to the human decision. I turn it on only after its precision is measured.
+
+**Make the AI show its work in a form it can lose** *(BLAZE 2)*. A finding has to say what observation would prove it wrong, then survive a verification pass. Authors refute findings with evidence, so false positives become a number I can measure and drive down.
+
+**Freeze predictions at publish time** *(The Edge Board)*. A forecasting system is only credible if it can't revise history. Every call is stored when it appears and graded against the final result and the closing line, and per-signal hit rates are public, misses included.
+
+---
+
+## Products
 
 <table>
 <tr>
 <td width="62%" valign="top">
 
-### 📊 [The Edge Board](https://nfl-edge-kappa.vercel.app) · `live` · [source](https://github.com/JROtto5/nfl-edge)
-A live NFL + college football analytics app, installable on your phone.
-- **~30 measured signals**: weather, role-weighted injuries, line movement, rest, live in-game pace vs the live line
-- **Weighted stacking**: agreeing signals are scored by evidence weight, and conflicting ones are shown, never hidden
-- **Its own model**: Massey-style power ratings blended with a matchup model and adjusted for injuries
-- **Honest track record**: every call is frozen the moment it appears and graded at the final, with closing-line value and a per-signal self-audit. Losses are published right next to wins.
-- When nothing clears the bar, it says **"nothing worth betting"** instead of ranking the least-bad option
+### 📊 [The Edge Board](https://nfl-edge-kappa.vercel.app) · [source](https://github.com/JROtto5/nfl-edge)
+A sports forecasting system for the NFL and college football with a **public, self-grading track record**. It's an installable PWA.
+- **~30 measured signals** (weather, role-weighted injuries, line movement, rest, live in-game pace), combined by evidence weight. When signals conflict, the board shows the conflict instead of hiding it.
+- **Its own model**: least-squares power ratings blended with a matchup model and adjusted for injuries.
+- **Audited record**: every prediction is frozen when published and graded against the final score and closing line, with a per-signal self-audit.
+- **It abstains** when no signal clears the threshold, instead of ranking the least-bad option.
 
-<sub>JS · Vercel serverless + cron grading · PWA with web push alerts</sub>
+<sub>JS · Vercel serverless + cron grading · Vercel Blob · web push · MIT</sub>
 
 </td>
 <td width="38%" valign="top">
-<img src="assets/edge-picks.jpg" width="100%" alt="Edge Picks: graded track record">
+<img src="assets/edge-power.jpg" width="100%" alt="The Edge Board: model power ratings">
 </td>
 </tr>
 </table>
 
-<p align="center">
-  <img src="assets/edge-board-desk.jpg" width="66%" alt="The Edge Board: weekly board">
-  <img src="assets/edge-power.jpg" width="32%" alt="Power Poll: model ratings">
-</p>
+**🏈 [Draft War Room](https://github.com/JROtto5/draft-war-room)**: a fantasy-football decision tool. It runs Monte Carlo survival and title odds, builds a start/sit consensus across three providers, and has a waiver radar and trade sims. It's an MIT-licensed, zero-build PWA that auto-deploys to Vercel.
 
-### 🏈 [Draft War Room](https://github.com/JROtto5/draft-war-room)
-A superflex fantasy cockpit that grew from a draft tool into a whole-season command center: Monte Carlo survival odds and title odds, a start/sit consensus across Sleeper, ESPN and CBS, a waiver radar, trade sims, and live injury feeds. **MIT licensed, 100+ commits, zero-build static PWA** that auto-deploys to Vercel.
-
-<p align="center"><img src="assets/draft-war-room.jpg" width="100%" alt="Draft War Room season command center"></p>
-
-| Project | What it is | Stack |
-|---|---|---|
-| ✂️ **Clipper** 🔒 | Paste a video link and get back vertical, captioned highlight Shorts. Claude picks the moments from the transcript, FFmpeg renders them, and the YouTube API uploads them as drafts. Cached, idempotent re-runs, and it runs on an autopilot timer. | Python · Claude API · FFmpeg · YouTube Data API |
+**✂️ Clipper**: paste a video link and get vertical, captioned highlight Shorts. Claude picks the moments from the transcript, FFmpeg renders them, and the YouTube Data API uploads them as drafts. Re-runs are idempotent and cached.
 
 ---
 
-## 🏢 Production Engineering (Day Job)
+## Linux
 
-I build and run a **production compliance and remediation platform** that customers depend on daily.
+### [SITH OS](https://github.com/JROtto5/sith-os): my own Arch Linux distribution
+It's built with `archiso`: an installable live ISO with a Calamares graphical installer, **~240 curated packages and 11 custom commands**, themed end to end from bootloader to Plymouth, SDDM, KDE Plasma and the Kitty terminal.
 
-- **Turned a spreadsheet-and-script operation into a production platform.** Postgres (Supabase) holds the business logic in SECURITY DEFINER RPCs. A fleet of **25+ scheduled and queue-driven AWS Lambda jobs** (Python, SAM, SQS, EventBridge) does the work, and thin TypeScript/React clients render what the database decides.
-- **Shipped customer-facing reporting end to end**: per-customer email jobs, a partner push API and web dashboards covering account health, inventory, trends and recommended actions. They all read from **one shared classifier**, so every surface tells the customer the same thing.
-- **Built and run an AI code-review service** that reviews every pull request across dozens of repositories in minutes. It has multi-reviewer verdicts, finding-by-finding answers, approval gating and a feedback loop from reviewer votes. It deploys itself overnight with health checks and **automatic rollback**.
-- **Run an autonomous development fleet**: parallel coding agents on isolated clones across cloud and local machines, a launch queue with memory and capacity guards, merge and release pipelines, stall detection, and daily ticket reconciliation. It ships production changes every day, all **under human approval**.
-- **Automated the back office**: an inbox reader that classifies and records third-party responses, a public-records finder that pre-fills missing business details, and a portal reader. Each one ran in **shadow mode first** and was switched on only after its precision was measured.
-- **Built the data and statistics layer**: backtested prediction models with calibrated, honest confidence ranges, a nightly scoring and recalibration loop with drift alarms, and an **MCP server** that gives AI agents read-only access to reporting, with scoped keys and change notifications.
-- **Hardened reliability**: row-level security and born-closed grants, migration gates that replay every schema change in Docker, CI guards that fail on drift, paging alarms, and **identical-output proofs** before any change to a customer-facing path.
-
-<p>
-  <img src="https://img.shields.io/badge/AWS_Lambda-0b0b12?style=flat-square&logo=awslambda&logoColor=ff9900">
-  <img src="https://img.shields.io/badge/SAM_·_SQS_·_EventBridge-0b0b12?style=flat-square&logo=amazonwebservices&logoColor=ff9900">
-  <img src="https://img.shields.io/badge/Supabase-0b0b12?style=flat-square&logo=supabase&logoColor=3ecf8e">
-  <img src="https://img.shields.io/badge/React-0b0b12?style=flat-square&logo=react&logoColor=61dafb">
-  <img src="https://img.shields.io/badge/Docker-0b0b12?style=flat-square&logo=docker&logoColor=2496ed">
-  <img src="https://img.shields.io/badge/MCP-0b0b12?style=flat-square&logo=anthropic&logoColor=d4a27f">
-  <img src="https://img.shields.io/badge/GitHub_Actions-0b0b12?style=flat-square&logo=githubactions&logoColor=2088ff">
-</p>
-
-<sub>Proprietary work, so no code or customer details here. I'm glad to talk architecture.</sub>
+I daily-drive Arch on a 4-monitor RTX 5070 Ti workstation, write my own **Plasma 6 widgets** and **KWin effect patches**, and debug the kernel/driver/compositor stack myself. One example: tracing a multi-monitor lag problem to an nvidia-open driver regression that dropped the GPU's PCIe link to Gen 1.
 
 ---
 
-## 🐧 Linux
-
-### [SITH OS: *The Dark Side of Linux*](https://github.com/JROtto5/sith-os)
-My own **Arch Linux distribution**, built with `archiso`: an installable live ISO with a Calamares graphical installer, **~190 curated packages, 178 config files and 10 custom commands**.
-Themed end to end: GRUB → Plymouth → SDDM → KDE Plasma → Kitty, plus four named virtual desktops (KORRIBAN, MALACHOR, DROMUND, EXEGOL).
-
-I daily-drive Arch on a 4-monitor RTX 5070 Ti rig and write my own **Plasma 6 widgets** (a custom system-stats plasmoid that replaced conky) and **KWin effect patches**. I also debug the kernel/driver/compositor stack when it breaks, and on bleeding-edge NVIDIA it breaks.
-
----
-
-## 🎨 Games & Creative Code
+## Games & creative code
 
 <table>
 <tr>
 <td width="50%" valign="top">
 
-### 🎬 LUMEN: a short film written in Python
-A **4-minute animated short** where every frame comes from code (pycairo + numpy, 1080p/24fps). It has a timeline-driven scene system, generated dialogue, a mixed score and SFX, and subtitles. A tiny robot lighthouse keeper gives up its own heart to light the lamp.
+### 🔵 [Dot Universe](https://github.com/JROtto5/dot-universe) · [**▶ play**](https://www.dotslayer.live)
+Two browser games on one account: **DotSlayer**, a 150-floor roguelike shooter with 6 classes, a boss every 10 floors, challenge modes and global leaderboards, and **Dot Clicker**, an idle empire with prestige. Progress in each one boosts the other.
 
-<img src="assets/lumen.gif" width="100%" alt="LUMEN lighthouse in a storm">
-<img src="assets/lumen-still.jpg" width="100%" alt="LUMEN still">
+<a href="https://www.dotslayer.live"><img src="assets/dotslayer-gameplay.jpg" width="100%" alt="DotSlayer gameplay"></a>
+
+<sub>Next.js 14 · Phaser 3 · Supabase auth, cloud saves, leaderboards</sub>
+
+### 🎰 [NEON SPIN](https://github.com/JROtto5/neon-spin) · [**▶ play**](https://jrotto5.github.io/neon-spin/)
+An idle/incremental game in **one self-contained HTML file with no build step**: up to 7 reels, 40 upgrades, 39 achievements, VIP perks and an Ascension prestige layer.
 
 </td>
 <td width="50%" valign="top">
 
-### 🎰 [NEON SPIN](https://github.com/JROtto5/neon-spin) · [**▶ play it**](https://jrotto5.github.io/neon-spin/)
-A neon idle slot-machine empire: 3→5 animated reels, a luck system, 13 generators, 30+ upgrades and 30+ achievements. **One self-contained HTML file, zero dependencies.**
+### 🎬 LUMEN: a short film rendered from code
+A **4-minute animated short** where every frame is drawn in Python (pycairo + numpy, 1080p/24fps). It uses a timeline-driven scene system, synthesized voices, and a mixed score and SFX. A tiny robot lighthouse keeper gives up its own heart to light the lamp.
 
-<a href="https://jrotto5.github.io/neon-spin/"><img src="assets/neon-spin.jpg" width="100%" alt="NEON SPIN"></a>
-
-### 🔵 [Dot Universe: DotSlayer + Dot Clicker](https://github.com/JROtto5/MineWeb) · [**▶ play it**](https://www.dotslayer.live)
-Two browser games on one account system: **DotSlayer**, a roguelike shooter with procedurally generated floors, 5 classes, boss fights, a skill tree and global leaderboards, and **Dot Clicker**, an idle empire with prestige tiers. Progress in each one boosts the other.
-
-<a href="https://www.dotslayer.live"><img src="assets/dot-universe.jpg" width="100%" alt="Dot Universe"></a>
-
-<sub>Next.js 14 · Phaser 3 · Supabase auth, cloud saves and realtime · TypeScript</sub>
+<img src="assets/lumen.gif" width="100%" alt="LUMEN lighthouse in a storm">
+<img src="assets/lumen-still.jpg" width="100%" alt="LUMEN still">
 
 </td>
 </tr>
@@ -180,19 +162,28 @@ Two browser games on one account system: **DotSlayer**, a roguelike shooter with
 
 ---
 
-## ⚡ How I Work
-
-```yaml
-ships:   fast. Plain modules, no build step unless one earns its place
-tests:   bots that play my game and screenshot it so I don't ship blind
-data:    if a number is on screen, you can see the sample behind it
-honesty: my betting model publishes its losses too
-ai:      I run parallel coding agents as a daily workflow, then review everything they ship
-linux:   when the driver breaks, I'm the one reading dmesg
-```
+## Activity
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Open_to-game_dev_·_product_engineering_·_Linux-ff2e63?style=for-the-badge">
+  <img src="assets/stats.svg" width="100%" alt="Contribution telemetry, last 12 months">
+</p>
+<p align="center">
+  <img src="assets/activity.svg" width="49%" alt="Contributions per month">
+  <img src="assets/breakdown.svg" width="49%" alt="Activity breakdown: commits, PRs, issues, reviews">
 </p>
 
-<!-- CONTACT: add your LinkedIn / email / portfolio link here -->
+<sub>Many of these PRs are opened by coding agents I orchestrate. Every one goes through the BLAZE 2 review gate and a human approval before it merges. Generated from the GitHub API by <a href="tools/gen_stats.py">tools/gen_stats.py</a>.</sub>
+
+---
+
+## How I'd work with your team
+
+- **I write it down first.** Dragon Front has 30+ design docs. At work, changes to customer-facing paths start with a short design note and a golden-output diff.
+- **I test like a player.** Headless bots play my game and screenshot every match; I'd bring that habit to your QA and perf budgets.
+- **I measure before I automate.** Shadow mode, precision targets, then rollout.
+- **I work across the whole stack**: rendering and netcode, Postgres and AWS, kernel and driver debugging.
+- **I use AI tools with guardrails**, and I can tell you exactly where they help and where they don't.
+
+<p align="center">
+  <b>Open to game dev · product engineering · Linux/infra roles.</b> I'm happy to demo Dragon Front or walk through any architecture above.
+</p>
