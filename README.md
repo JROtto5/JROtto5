@@ -16,7 +16,7 @@
 
 | | |
 |---|---|
-| **75k+ lines · 1,190+ commits** | **Dragon Front**: a browser FPS I built solo from an empty folder |
+| **94k lines · 1,190+ commits** | **Dragon Front**: a browser FPS I built from an empty folder, solo, with AI pair-programming under my review |
 | **~5k-line authoritative server** | My own Node netcode: binary delta snapshots, client prediction, lag compensation, host migration |
 | **~4–6 min PR → verdict** | **BLAZE 2**, the AI code reviewer I built and run: thousands of reviews a month across a few dozen repos ([case study](case-studies/blaze-2.md)) |
 | **25+ Lambda jobs in production** | Supabase/Postgres business logic, customer reporting, an MCP server for AI agents |
@@ -45,10 +45,10 @@
 
 | | |
 |---|---|
-| 📈 **Scale** | **1,190+ commits · 250+ modules · 75k+ lines of JS** · 30+ design docs (art bible, balance, campaign scripts, store page, release checklist) |
+| 📈 **Scale** | **1,190+ commits · 324 modules · 94k lines of JS · 150 test scripts** · 35 design docs (art bible, balance, campaign scripts, store page, release checklist) |
 | 🌐 **Netcode** | My own **authoritative Node match server** (~5k lines): binary delta-snapshot codec, client prediction, lag compensation, host migration, server browser, parties, spectator/caster mode, bot backfill, and a packaged dedicated server |
-| 🎮 **Content** | 10-mission campaign with cutscenes · **17 maps** · Domination, Hardpoint, S&D, CTF, Gun Game, Infected, Gunfight 2v2 · Ranked seasons · **Dynasty Defense** co-op horde · **Ground War**: 20v20 with bot backfill, five flags, vehicles |
-| 🤖 **AI** | Squad-level bot director (attack/defend orders) and per-bot LOD (frustum + distance tiers), frame-time budgeted for 40 combatants |
+| 🎮 **Content** | 10-mission campaign with cutscenes · **20 maps** · 52 weapons · Domination, Hardpoint, S&D, CTF, Gun Game, Infected, Gunfight 2v2 · Ranked seasons · **Dynasty Defense** co-op horde · **Ground War**: 20v20 with bot backfill, five flags, vehicles |
+| 🤖 **AI** | Squad-level bot director (attack/defend orders) and per-bot LOD (frustum + distance tiers) for 40-combatant Ground War matches |
 | ✨ **Rendering** | Custom post pipeline (GTAO, bloom, SMAA, color grade), procedural PBR textures, HDRI lighting, per-map weather |
 | 🕹️ **Platforms** | Gamepad with aim assist and rumble · Steamworks, Workshop and Steam Input · Steam Deck mode · touch controls for phones |
 | 🧪 **Quality** | Headless bots that play matches and screenshot them · map validators · perf harnesses · a deterministic trailer pipeline (the clip above is its output) |
@@ -178,7 +178,7 @@ A **4-minute animated short** where every frame is drawn in Python (pycairo + nu
 
 ## How I'd work with your team
 
-- **I write it down first.** Dragon Front has 30+ design docs. At work, changes to customer-facing paths start with a short design note and a golden-output diff.
+- **I write it down first.** Dragon Front has 35 design docs. At work, changes to customer-facing paths start with a short design note and a golden-output diff.
 - **I test like a player.** Headless bots play my game and screenshot every match; I'd bring that habit to your QA and perf budgets.
 - **I measure before I automate.** Shadow mode, precision targets, then rollout.
 - **I work across the whole stack**: rendering and netcode, Postgres and AWS, kernel and driver debugging.
