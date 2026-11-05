@@ -47,7 +47,7 @@
 
 ## Selected open-source contributions
 
-- **[colyseus/schema](https://github.com/colyseus/schema)**, co-author of the `ArraySchema.sort()` same-tick desync fix shipped in **5.0.44** ([#250](https://github.com/colyseus/schema/pull/250), [commits](https://github.com/colyseus/schema/compare/390cf38...f512336)). I found the desync with a server/client differential fuzzer. My 20 regression tests, the paused-tracking guard and three SDK fixtures are in the release, and the maintainer's final fix cut a clean sort to 20 bytes per tick on a 500-entry board.
+- **[colyseus/schema](https://github.com/colyseus/schema)**, co-author of the `ArraySchema.sort()` same-tick desync fix shipped in **5.0.44** ([#250](https://github.com/colyseus/schema/pull/250), [commits](https://github.com/colyseus/schema/compare/390cf38...f512336)). I found the desync with a server/client differential fuzzer. My 20 regression tests, the paused-tracking guard and three SDK fixtures are in the release, and the maintainer's final fix cut a clean sort to 20 bytes per tick on a 500-entry board. Also reported [#252](https://github.com/colyseus/schema/issues/252) (`splice()` with a negative or out-of-range start desynced clients), fixed in **5.0.45**.
 
 ---
 
