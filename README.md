@@ -16,12 +16,14 @@
 
 | | |
 |---|---|
+| **84 reviews · 9 upstream projects** | **[crucible](#crucible)**, the open-source AI PR reviewer I built: its verification pass throws out 45% of the model's own findings before anyone reads them |
 | **3,030 PRs · 88% merged** | The past year on GitHub: 6.2k commits across 41 repos, 242 active days |
 | **94k lines · 1,190+ commits** | **Dragon Front**: a browser FPS I built from an empty folder, solo, with AI pair-programming under my review |
 | **~5k-line authoritative server** | My own Node netcode: binary delta snapshots, client prediction, lag compensation, host migration |
 | **4 live apps you can open now** | DotSlayer, NEON SPIN, The Edge Board, Draft War Room, plus my own Arch Linux distro |
 
 <p align="center">
+  <a href="#crucible"><img src="assets/nav/crucible.svg" alt="crucible" height="38"></a>
   <a href="#activity"><img src="assets/nav/activity.svg" alt="Activity" height="38"></a>
   <a href="#how-id-work-with-your-team"><img src="assets/nav/howiwork.svg" alt="How I work" height="38"></a>
   <a href="#dragon-front"><img src="assets/nav/dragon-front.svg" alt="Dragon Front" height="38"></a>
@@ -42,11 +44,30 @@
   <a href="https://github.com/JROtto5/neon-spin"><img src="assets/cards/neon-spin.svg" width="49%" alt="NEON SPIN"></a>
 </p>
 
+## crucible
+
+**[crucible](https://github.com/JROtto5/crucible)** is the AI code reviewer I built and maintain. Every open-source PR I send goes through it first; it never posts, I submit. MIT, Python standard library only.
+
+| | |
+|---|---|
+| **84 reviews** | across 9 upstream projects, including Valve's gamescope, three.js, Supabase, MangoHud and Lutris |
+| **$0.78** | average cost per review |
+| **45% dropped** | of 277 model findings, by its own verification pass |
+| **24 of 30 held up** | of the findings authors have answered so far (fixed or deferred, not refuted) |
+
+**How it works.** The project's own build and tests run first. A model different from the one that wrote the change reviews it, and each finding must say what observation would prove it wrong. A verification pass then tries to prove exactly that, and only survivors are reported. Verdicts are pinned to one commit, the author answers every finding, and it learns each project's house style from its merged PRs.
+
+**A recent catch.** It flagged a signal race in Valve's gamescope reaper. The same window was in another contributor's fix for that bug; they reproduced it under gdb, fixed it and credited me ([`Reported-by`](https://github.com/ValveSoftware/gamescope/pull/2541#issuecomment-6690538950)).
+
+```sh
+pipx install git+https://github.com/JROtto5/crucible
+```
+
 ## Selected open-source contributions
 
-- **[three-mesh-bvh](https://github.com/gkjohnson/three-mesh-bvh)** (BVH raycasting for three.js), [WebGPU: Unproject camera rays in camera space to keep precision far from the origin](https://github.com/gkjohnson/three-mesh-bvh/pull/956) (merged; fixes [#946](https://github.com/gkjohnson/three-mesh-bvh/issues/946)). Compute-shader camera rays drifted with distance from the world origin, by up to 41.7 px at 1080p with the camera 1e4 units out; measured on an RTX 5070 Ti, the direction error dropped from 0.027 rad to 6.1e-8 rad, and the old call signature still works behind a deprecation warning.
-- **[MangoHud](https://github.com/flightlessmango/MangoHud)** (the Vulkan/OpenGL performance overlay), added `cpu_max_core_load`, which shows the busiest core's load so a single-thread bottleneck is visible next to the averaged CPU load ([#2198](https://github.com/flightlessmango/MangoHud/pull/2198), merged; requested in [#2180](https://github.com/flightlessmango/MangoHud/issues/2180)).
-- **[colyseus/schema](https://github.com/colyseus/schema)**, co-author of the `ArraySchema.sort()` same-tick desync fix shipped in **5.0.44** ([#250](https://github.com/colyseus/schema/pull/250), [commits](https://github.com/colyseus/schema/compare/390cf38...f512336)). I found the desync with a server/client differential fuzzer. My 20 regression tests, the paused-tracking guard and three SDK fixtures are in the release, and the maintainer's final fix cut a clean sort to 20 bytes per tick on a 500-entry board. Also reported [#252](https://github.com/colyseus/schema/issues/252) (`splice()` with a negative or out-of-range start desynced clients), fixed in **5.0.45**.
+- **[three-mesh-bvh](https://github.com/gkjohnson/three-mesh-bvh)**: fixed WebGPU camera rays losing precision far from the world origin (up to 42 px off at 1080p). [#956](https://github.com/gkjohnson/three-mesh-bvh/pull/956), merged.
+- **[MangoHud](https://github.com/flightlessmango/MangoHud)**: added `cpu_max_core_load`, so a single-thread bottleneck shows up next to the averaged CPU load. [#2198](https://github.com/flightlessmango/MangoHud/pull/2198), merged.
+- **[colyseus/schema](https://github.com/colyseus/schema)**: found an `ArraySchema.sort()` client desync with a differential fuzzer; co-author of the fix in 5.0.44, with my regression tests in the release ([#250](https://github.com/colyseus/schema/pull/250)). Also reported a `splice()` desync, fixed in 5.0.45 ([#252](https://github.com/colyseus/schema/issues/252)).
 
 ---
 
@@ -134,7 +155,7 @@ A sports forecasting system for the NFL and college football with a **public, se
 </tr>
 </table>
 
-**🔬 [crucible](https://github.com/JROtto5/crucible)**: my open-source, evidence-first AI reviewer for upstream PRs. Deterministic checks run first, then a reviewer on a different model from the author, then a verification pass that tries to *disprove* every finding. Verdicts are pinned to one commit, the author answers every finding, and it never posts: a human submits. I use it on every open-source contribution I make.
+**🔬 [crucible](#crucible)**: my open-source AI PR reviewer ([details above](#crucible)).
 
 **🏈 [Draft War Room](https://github.com/JROtto5/draft-war-room)**: a fantasy-football decision tool. It runs Monte Carlo survival and title odds, builds a start/sit consensus across three providers, and has a waiver radar and trade sims. It's an MIT-licensed, zero-build PWA that auto-deploys to Vercel.
 
