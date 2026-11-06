@@ -4,7 +4,7 @@
 
 <p align="center">
   <b>I'm a product engineer who builds production systems end to end: AI dev tooling, data platforms on Postgres and AWS, and the real-time apps on top.</b><br>
-  By day I build a compliance platform and BLAZE 2, the AI code reviewer that gates every change to it. On nights and weekends I'm building a browser FPS with its own authoritative multiplayer server.
+  By day I build a production compliance platform and the AI tooling around it. On nights and weekends I'm building a browser FPS with its own authoritative multiplayer server.
 </p>
 
 <p align="center">
@@ -16,8 +16,6 @@
 
 | | |
 |---|---|
-| **~4–6 min PR → verdict** | **BLAZE 2**, the AI code reviewer I built and run: thousands of reviews a month across a few dozen repos ([case study](case-studies/blaze-2.md)) |
-| **25+ Lambda jobs in production** | Supabase/Postgres business logic, customer reporting, an MCP server for AI agents |
 | **3,030 PRs · 88% merged** | The past year on GitHub: 6.2k commits across 41 repos, 242 active days |
 | **94k lines · 1,190+ commits** | **Dragon Front**: a browser FPS I built from an empty folder, solo, with AI pair-programming under my review |
 | **~5k-line authoritative server** | My own Node netcode: binary delta snapshots, client prediction, lag compensation, host migration |
@@ -62,7 +60,7 @@
   <img src="assets/breakdown.svg" width="49%" alt="Activity breakdown: commits, PRs, issues, reviews">
 </p>
 
-<sub>Many of these PRs are opened by coding agents I orchestrate. Every one goes through the BLAZE 2 review gate and a human approval before it merges. Generated from the GitHub API by <a href="tools/gen_stats.py">tools/gen_stats.py</a>.</sub>
+<sub>Many of these PRs are opened by coding agents I orchestrate. Every one gets AI review and a human approval before it merges. Generated from the GitHub API by <a href="tools/gen_stats.py">tools/gen_stats.py</a>.</sub>
 
 ---
 
@@ -108,17 +106,9 @@
 
 ## Production engineering
 
-**Day job.** I build and run a production compliance and remediation platform, and the AI development tooling around it.
+**Day job.** I build and run a production compliance platform end to end: Postgres (Supabase) with the business logic in the database, scheduled and queue-driven AWS Lambda jobs in Python, TypeScript/React clients, and the AI development tooling the team uses to ship it.
 
-- **Turned a spreadsheet-and-script operation into a production platform.** Postgres (Supabase) holds the business logic in SECURITY DEFINER RPCs behind row-level security. A fleet of **25+ scheduled and queue-driven AWS Lambda jobs** (Python, SAM, SQS, EventBridge) does the work, and thin TypeScript/React clients render what the database decides.
-- **Built [BLAZE 2](case-studies/blaze-2.md), an AI code reviewer.** It takes PRs and design plans to "safe to approve" in **~4–6 minutes**, at thousands of reviews a month. It runs parallel reviewers and a verification pass, and every finding must state what would disprove it. Verdicts are tied to the exact head commit, and an approval gate makes sure **a human always approves**. It deploys itself with canary reviews and automatic rollback.
-- **Built the orchestration for parallel coding agents**: isolated clones, a capacity-guarded launch queue, stall detection, merge pipelines and daily ticket reconciliation. Every change goes through the AI review gate and human approval before it merges.
-- **Shipped customer-facing reporting end to end**: per-customer email jobs, a partner push API and web dashboards. They all read **one shared classifier**, so every surface tells the customer the same thing.
-- **Built a live event pipeline** that gets flag events to downstream systems in about 3 minutes. A minute-by-minute safety-net feed ran in shadow first, at over 99% agreement, before go-live.
-- **Built the data layer**: backtested prediction models with calibrated confidence intervals, nightly scoring and weekly recalibration with drift alarms, and an **MCP server** that gives AI agents read-only reporting access with scoped keys.
-- **Hardened reliability**: default-deny grants, migration gates that replay every schema change in Docker, CI drift guards, paging alarms, and golden-output diff tests before any change to a customer-facing path.
-
-<sub>Proprietary work, so no code or customer details here. I'm glad to walk through the architecture.</sub>
+<sub>Proprietary work, so no details here. I'm glad to talk about it in person.</sub>
 
 ---
 
