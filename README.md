@@ -153,20 +153,6 @@ A sports forecasting system for the NFL and college football with a **public, se
 
 ---
 
-## Selected engineering decisions
-
-**Authoritative server, not peer-to-peer** *(Dragon Front)*. Browser clients can't be trusted, and a P2P host has an advantage that ruins ranked play. The server owns the game state and sends binary delta snapshots instead of JSON. Clients predict locally while the server rewinds time to validate hits. The trade-off: I run servers and handle host migration myself.
-
-**Business logic in Postgres, not in the clients** *(day job)*. Emails, the partner API and dashboards all call the same RPCs, so they can't disagree. SQL is harder to unit-test, so every migration is replayed in Docker in CI before it ships.
-
-**Shadow mode before automation** *(day job)*. Every risky automation first records what it *would* do next to the human decision. I turn it on only after its precision is measured.
-
-**Make the AI show its work in a form it can lose** *(BLAZE 2)*. A finding has to say what observation would prove it wrong, then survive a verification pass. Authors refute findings with evidence, so false positives become a number I can measure and drive down.
-
-**Freeze predictions at publish time** *(The Edge Board)*. A forecasting system is only credible if it can't revise history. Every call is stored when it appears and graded against the final result and the closing line, and per-signal hit rates are public, misses included.
-
----
-
 ## Games & creative code
 
 <table>
