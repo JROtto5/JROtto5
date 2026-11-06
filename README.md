@@ -29,7 +29,6 @@
   <a href="#dragon-front"><img src="assets/nav/dragon-front.svg" alt="Dragon Front" height="38"></a>
   <a href="#production-engineering"><img src="assets/nav/production.svg" alt="Production engineering" height="38"></a>
   <a href="#products"><img src="assets/nav/products.svg" alt="Products" height="38"></a>
-  <a href="#selected-engineering-decisions"><img src="assets/nav/decisions.svg" alt="Engineering decisions" height="38"></a>
   <a href="#games--creative-code"><img src="assets/nav/games.svg" alt="Games & creative code" height="38"></a>
   <a href="#linux"><img src="assets/nav/linux.svg" alt="Linux" height="38"></a>
 </p>
