@@ -19,7 +19,7 @@
 | **84 reviews · 9 upstream projects** | **[crucible](#crucible)**, the open-source AI PR reviewer I built: its verification pass throws out 45% of the model's own findings before anyone reads them |
 | **3,030 PRs · 88% merged** | The past year on GitHub: 6.2k commits across 41 repos, 242 active days |
 | **94k lines · 1,190+ commits** | **Dragon Front**: a browser FPS I built from an empty folder, solo, with AI pair-programming under my review |
-| **~5k-line authoritative server** | My own Node netcode: binary delta snapshots, client prediction, lag compensation, host migration |
+| **~5k-line authoritative server** | My own Node netcode: binary delta snapshots, client prediction, lag compensation, bot backfill |
 | **4 live apps you can open now** | DotSlayer, NEON SPIN, The Edge Board, Draft War Room, plus my own Arch Linux distro |
 
 <p align="center">
@@ -107,7 +107,7 @@ pipx install git+https://github.com/JROtto5/crucible
 | | |
 |---|---|
 | 📈 **Scale** | **1,190+ commits · 324 modules · 94k lines of JS · 150 test scripts** · 35 design docs (art bible, balance, campaign scripts, store page, release checklist) |
-| 🌐 **Netcode** | My own **authoritative Node match server** (~5k lines): binary delta-snapshot codec, client prediction, lag compensation, host migration, server browser, parties, spectator/caster mode, bot backfill, and a packaged dedicated server |
+| 🌐 **Netcode** | My own **authoritative Node match server** (~5k lines): binary delta-snapshot codec, client prediction, lag compensation, lobby host hand-off, server browser, parties, spectator/caster mode, bot backfill, and a packaged dedicated server |
 | 🎮 **Content** | 10-mission campaign with cutscenes · **20 maps** · 52 weapons · Domination, Hardpoint, S&D, CTF, Gun Game, Infected, Gunfight 2v2 · Ranked seasons · **Dynasty Defense** co-op horde · **Ground War**: 20v20 with bot backfill, five flags, vehicles |
 | 🤖 **AI** | Squad-level bot director (attack/defend orders) and per-bot LOD (frustum + distance tiers) for 40-combatant Ground War matches |
 | ✨ **Rendering** | Custom post pipeline (GTAO, bloom, SMAA, color grade), procedural PBR textures, HDRI lighting, per-map weather |
