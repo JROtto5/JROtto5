@@ -16,7 +16,7 @@
 
 | | |
 |---|---|
-| **84 reviews · 9 upstream projects** | **[crucible](#crucible)**, the open-source AI PR reviewer I built: its verification pass throws out 45% of the model's own findings before anyone reads them |
+| **crucible v0.3** | **[crucible](#crucible)**, the open-source AI PR reviewer I built: every finding has to survive an attempt to disprove it before anyone reads it |
 | **3,030 PRs · 88% merged** | The past year on GitHub: 6.2k commits across 41 repos, 242 active days |
 | **94k lines · 1,190+ commits** | **Dragon Front**: a browser FPS I built from an empty folder, solo, with AI pair-programming under my review |
 | **~5k-line authoritative server** | My own Node netcode: binary delta snapshots, client prediction, lag compensation, bot backfill |
@@ -48,14 +48,12 @@
 
 **[crucible](https://github.com/JROtto5/crucible)** is the AI code reviewer I built and maintain. Every open-source PR I send goes through it first; it never posts, I submit. MIT, Python standard library only.
 
-| | |
+| Version | What it added |
 |---|---|
-| **84 reviews** | across 9 upstream projects, including Valve's gamescope, three.js, Supabase, MangoHud and Lutris |
-| **$0.78** | average cost per review |
-| **45% dropped** | of 277 model findings, by its own verification pass |
-| **24 of 30 held up** | of the findings authors have answered so far (fixed or deferred, not refuted) |
-
-**How it works.** The project's own build and tests run first. A model different from the one that wrote the change reviews it, and each finding must say what observation would prove it wrong. A verification pass then tries to prove exactly that, and only survivors are reported. Verdicts are pinned to one commit, the author answers every finding, and it learns each project's house style from its merged PRs.
+| **v0.1** | The core loop: a reviewer on a different model from the one that wrote the change, a verification pass that tries to disprove every finding, verdicts pinned to one commit, and an answer (fixed, refuted, deferred) for every finding |
+| **v0.2** | Runs the project's own build and tests, learns its house style and maintainer rules from merged PRs, executes code to verify a finding, and checks PR readiness (linked issue, tests, description) |
+| **v0.3** | A labelled eval of planted bugs that every change is scored against, tiered verification (a cheap model first, the strong one on what survives: same recall, 24% cheaper), and incremental re-review of only what changed |
+| **next** | One-command install, cheaper routing for docs-only rounds, a warning when another open PR edits the same lines, and Python execution in the verifier |
 
 **A recent catch.** It flagged a signal race in Valve's gamescope reaper. The same window was in another contributor's fix for that bug; they reproduced it under gdb, fixed it and credited me ([`Reported-by`](https://github.com/ValveSoftware/gamescope/pull/2541#issuecomment-6690538950)).
 
