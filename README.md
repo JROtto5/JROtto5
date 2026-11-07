@@ -67,6 +67,7 @@ pipx install git+https://github.com/JROtto5/crucible
 - **[Lutris](https://github.com/lutris/lutris)**: stopped a missing Wine version from silently upgrading a game's plain Wine prefix to Proton, a one-way conversion; reworked to the maintainer's narrower rule in review, 7 tests (3 fail without the fix). [#7004](https://github.com/lutris/lutris/pull/7004), merged.
 - **[three-mesh-bvh](https://github.com/gkjohnson/three-mesh-bvh)**: fixed WebGPU camera rays losing precision far from the world origin (up to 42 px off at 1080p). [#956](https://github.com/gkjohnson/three-mesh-bvh/pull/956), merged.
 - **[MangoHud](https://github.com/flightlessmango/MangoHud)**: added `cpu_max_core_load`, so a single-thread bottleneck shows up next to the averaged CPU load. [#2198](https://github.com/flightlessmango/MangoHud/pull/2198), merged.
+- **[Lutris](https://github.com/lutris/lutris)**: stopped a missing Wine version from silently upgrading a game's plain Wine prefix to Proton, which can't be undone ([#7004](https://github.com/lutris/lutris/pull/7004), merged), and repaired the markup that left labels blank in five translations ([#7006](https://github.com/lutris/lutris/pull/7006), merged).
 - **[colyseus/schema](https://github.com/colyseus/schema)**: found an `ArraySchema.sort()` client desync with a differential fuzzer; co-author of the fix in 5.0.44, with my regression tests in the release ([#250](https://github.com/colyseus/schema/pull/250)). Also reported a `splice()` desync, fixed in 5.0.45 ([#252](https://github.com/colyseus/schema/issues/252)).
 
 ---
