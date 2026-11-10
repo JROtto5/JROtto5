@@ -63,6 +63,7 @@ pipx install git+https://github.com/JROtto5/crucible
 
 ## Selected open-source contributions
 
+- **[three-mesh-bvh](https://github.com/gkjohnson/three-mesh-bvh)**: made a failed parallel BVH build reject instead of hanging, which also left the worker stuck for every later build; reworked to the maintainer's single-handler design in review, worker change down to ~25 lines, new WorkerPool tests (2 of 3 fail without the fix). [#963](https://github.com/gkjohnson/three-mesh-bvh/pull/963), merged.
 - **[three-mesh-bvh](https://github.com/gkjohnson/three-mesh-bvh)**: made WebGPU geometry packing copy vertex attributes straight from their backing arrays instead of through per-vertex accessors: 2.1x faster for positions and up to 7.2x with normals and UVs on 12.6M vertices, byte-identical output. [#958](https://github.com/gkjohnson/three-mesh-bvh/pull/958), merged.
 - **[Lutris](https://github.com/lutris/lutris)**: repaired broken Pango markup that left nine UI strings blank in five translations (Greek, French, Brazilian Portuguese, both Chinese), plus a test that parses every translated markup string. [#7006](https://github.com/lutris/lutris/pull/7006), merged.
 - **[Lutris](https://github.com/lutris/lutris)**: stopped a missing Wine version from silently upgrading a game's plain Wine prefix to Proton, a one-way conversion; reworked to the maintainer's narrower rule in review, 7 tests (3 fail without the fix). [#7004](https://github.com/lutris/lutris/pull/7004), merged.
