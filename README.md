@@ -16,7 +16,8 @@
 
 | | |
 |---|---|
-| **crucible v0.3** | **[crucible](#crucible)**, the open-source AI PR reviewer I built: every finding has to survive an attempt to disprove it before anyone reads it |
+| **crucible v0.4** | **[crucible](#crucible)**, the open-source AI PR reviewer I built: every finding has to survive an attempt to disprove it before anyone reads it |
+| **13 PRs merged upstream in 2 weeks** | In 6 open-source projects (three-mesh-bvh, Lutris, MapLibre, Supavisor, colyseus, MangoHud), plus 5 fixes maintainers built from my reports |
 | **3,030 PRs · 88% merged** | The past year on GitHub: 6.2k commits across 41 repos, 242 active days |
 | **94k lines · 1,190+ commits** | **Dragon Front**: a browser FPS I built from an empty folder, solo, with AI pair-programming under my review |
 | **~5k-line authoritative server** | My own Node netcode: binary delta snapshots, client prediction, lag compensation, bot backfill |
@@ -53,7 +54,8 @@
 | **v0.1** | The core loop: a reviewer on a different model from the one that wrote the change, a verification pass that tries to disprove every finding, verdicts pinned to one commit, and an answer (fixed, refuted, deferred) for every finding |
 | **v0.2** | Runs the project's own build and tests, learns its house style and maintainer rules from merged PRs, executes code to verify a finding, and checks PR readiness (linked issue, tests, description) |
 | **v0.3** | A labelled eval of planted bugs that every change is scored against, tiered verification (a cheap model first, the strong one on what survives: same recall, 24% cheaper), and incremental re-review of only what changed |
-| **next** | One-command install, cheaper routing for docs-only rounds, a warning when another open PR edits the same lines, and Python execution in the verifier |
+| **v0.4** | Reads past the diff: the docs, comments and call sites elsewhere in the repo that a change affects. Verified nits for copied blocks, dead code and security hardening gaps. A warning when another change defines the same symbols or adds out-of-order migrations. A per-call model fallback when an account hits a spend limit |
+| **next** | API-design checks (a new pattern beside the repo's existing one), reliability (error paths, retries, cleanup), and one-command install |
 
 **A recent catch.** It flagged a signal race in Valve's gamescope reaper. The same window was in another contributor's fix for that bug; they reproduced it under gdb, fixed it and credited me ([`Reported-by`](https://github.com/ValveSoftware/gamescope/pull/2541#issuecomment-6690538950)).
 
@@ -77,6 +79,8 @@ pipx install git+https://github.com/JROtto5/crucible
 - **[three-mesh-bvh](https://github.com/gkjohnson/three-mesh-bvh)**: fixed WebGPU camera rays losing precision far from the world origin (up to 42 px off at 1080p). [#956](https://github.com/gkjohnson/three-mesh-bvh/pull/956), merged.
 - **[MangoHud](https://github.com/flightlessmango/MangoHud)**: added `cpu_max_core_load`, so a single-thread bottleneck shows up next to the averaged CPU load. [#2198](https://github.com/flightlessmango/MangoHud/pull/2198), merged.
 - **[colyseus/schema](https://github.com/colyseus/schema)**: found an `ArraySchema.sort()` client desync with a differential fuzzer; co-author of the fix in 5.0.44, with my regression tests in the release ([#250](https://github.com/colyseus/schema/pull/250)). Also reported a `splice()` desync, fixed in 5.0.45 ([#252](https://github.com/colyseus/schema/issues/252)).
+
+**Credited in maintainers' own fixes:** a Lutris bug open for 2½ years, fixed by its maintainer from my diagnosis ("I never figured out what was going on there", [#5258](https://github.com/lutris/lutris/issues/5258)); Janus AudioBridge, where my 22-minute stream test confirmed the sequence-wrap fix before merge ([#3706](https://github.com/meetecho/janus-gateway/pull/3706)); FreeSWITCH, where my test caught a regression in an Opus negotiation change and my case went into its unit tests ([#3064](https://github.com/signalwire/freeswitch/pull/3064)); and Valve's gamescope ([`Reported-by`](https://github.com/ValveSoftware/gamescope/pull/2541#issuecomment-6690538950)).
 
 ---
 
