@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="495" height="274" viewBox="0 0 495 274" role="img" aria-label="JROtto5&apos;s upstream contributions: 14 PRs merged into 6 other projects">
+<title>JROtto5&apos;s upstream contributions: 14 PRs merged into 6 other projects</title>
+<style>
+text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+.h{font-size:17px;font-weight:600}
+.sub,.muted{font-size:12px}
+.repo{font-size:13px}
+.count{font-size:13px;font-weight:600}
+.h,.count{fill:#1f2328}.sub{fill:#1a7f37}.repo{fill:#1f2328}.muted{fill:#656d76}.card{fill:#ffffff;stroke:#d0d7de}.bar{fill:#2da44e}
+@media (prefers-color-scheme: dark){.h,.count{fill:#e6edf3}.sub{fill:#3fb950}.repo{fill:#c9d1d9}.muted{fill:#8b949e}.card{fill:#0d1117;stroke:#30363d}.bar{fill:#238636}}
+</style>
+<rect x="0.5" y="0.5" width="494" height="273" rx="6" class="card"/>
+<text x="24" y="32" class="h">JROtto5&apos;s upstream contributions</text>
+<text x="24" y="52" class="sub">14 PRs merged into 6 other projects</text>
+<g transform="translate(24,78)"><circle cx="5" cy="-4" r="5" fill="#f1e05a"/><text x="18" y="0" class="repo">gkjohnson/three-mesh-bvh</text><text x="300" y="0" class="muted" text-anchor="end">★ 3.6k</text><rect x="320" y="-11" width="70" height="10" rx="3" class="bar"/><text x="447" y="0" class="count" text-anchor="end">7</text></g>
+<g transform="translate(24,104)"><circle cx="5" cy="-4" r="5" fill="#3572A5"/><text x="18" y="0" class="repo">lutris/lutris</text><text x="300" y="0" class="muted" text-anchor="end">★ 10k</text><rect x="320" y="-11" width="30" height="10" rx="3" class="bar"/><text x="447" y="0" class="count" text-anchor="end">3</text></g>
+<g transform="translate(24,130)"><circle cx="5" cy="-4" r="5" fill="#3178c6"/><text x="18" y="0" class="repo">maplibre/maplibre-gl-js</text><text x="300" y="0" class="muted" text-anchor="end">★ 12k</text><rect x="320" y="-11" width="10" height="10" rx="3" class="bar"/><text x="447" y="0" class="count" text-anchor="end">1</text></g>
+<g transform="translate(24,156)"><circle cx="5" cy="-4" r="5" fill="#555555"/><text x="18" y="0" class="repo">flightlessmango/MangoHud</text><text x="300" y="0" class="muted" text-anchor="end">★ 9.3k</text><rect x="320" y="-11" width="10" height="10" rx="3" class="bar"/><text x="447" y="0" class="count" text-anchor="end">1</text></g>
+<g transform="translate(24,182)"><circle cx="5" cy="-4" r="5" fill="#3178c6"/><text x="18" y="0" class="repo">colyseus/colyseus</text><text x="300" y="0" class="muted" text-anchor="end">★ 7.6k</text><rect x="320" y="-11" width="10" height="10" rx="3" class="bar"/><text x="447" y="0" class="count" text-anchor="end">1</text></g>
+<g transform="translate(24,208)"><circle cx="5" cy="-4" r="5" fill="#6e4a7e"/><text x="18" y="0" class="repo">supabase/supavisor</text><text x="300" y="0" class="muted" text-anchor="end">★ 2.3k</text><rect x="320" y="-11" width="10" height="10" rx="3" class="bar"/><text x="447" y="0" class="count" text-anchor="end">1</text></g>
+<text x="24" y="258" class="muted">JavaScript · Python · TypeScript · C · Elixir</text>
+</svg>

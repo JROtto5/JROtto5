@@ -65,6 +65,10 @@ pipx install git+https://github.com/JROtto5/crucible
 
 ## Selected open-source contributions
 
+<p align="center">
+  <a href="https://github.com/JROtto5/upstream-card"><img src="assets/upstream-card.svg" alt="Merged pull requests in other people's open-source projects, by project" width="495"></a>
+</p>
+
 - **[three-mesh-bvh](https://github.com/gkjohnson/three-mesh-bvh)**: matched `PointsBVH` and `LineSegmentsBVH` raycasting to three.js r188, which now scales the point/line hit threshold by the object's largest world-space scale; without it the BVH and three.js disagree on hits for non-uniformly scaled objects. Follows my three.js report on the same bug; master fails the 4 new tests under r188. [#983](https://github.com/gkjohnson/three-mesh-bvh/pull/983), merged.
 - **[MapLibre GL JS](https://github.com/maplibre/maplibre-gl-js)**: fixed Arabic and Persian map labels looking cut at every letter join when drawn with a thin text halo, a regression from the 5.24.0 single-pass halo speedup; only tiles that contain cursive-script labels go back to a separate halo pass, so Latin-only maps keep the faster path (worker parse bench within noise). New render test fails on main. [#9009](https://github.com/maplibre/maplibre-gl-js/pull/9009), merged, fixes [#8949](https://github.com/maplibre/maplibre-gl-js/issues/8949).
 - **[Supavisor](https://github.com/supabase/supavisor)**: made the Supabase connection pooler tell clients when it drops startup options it doesn't pass on to Postgres (for example `options=-c statement_timeout=…`), which used to be ignored silently: one NOTICE lists every unknown option, as the maintainer asked; reworked to his design in review (Elixir). [#1273](https://github.com/supabase/supavisor/pull/1273), merged, fixes [#1272](https://github.com/supabase/supavisor/issues/1272).
@@ -170,6 +174,8 @@ A sports forecasting system for the NFL and college football with a **public, se
 </table>
 
 **🔬 [crucible](#crucible)**: my open-source AI PR reviewer ([details above](#crucible)).
+
+**🃏 [upstream-card](https://github.com/JROtto5/upstream-card)**: a GitHub Action and CLI that turns your merged PRs in other people's projects into a profile card (the one above). It counts public repos only, splits GitHub's 1,000-result search cap into date windows, and has zero dependencies.
 
 **🏈 [Draft War Room](https://github.com/JROtto5/draft-war-room)**: a fantasy-football decision tool. It runs Monte Carlo survival and title odds, builds a start/sit consensus across three providers, and has a waiver radar and trade sims. It's an MIT-licensed, zero-build PWA that auto-deploys to Vercel.
 

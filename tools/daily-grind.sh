@@ -12,8 +12,9 @@ echo "== $DAY $(date +%T) start"
 # 1. stats refresh (deterministic, own repo only)
 cd "$REPO" && git pull -q --rebase \
   && python3 tools/gen_stats.py --live && python3 tools/gen_cards.py \
-  && if ! git diff --quiet -- assets tools/stats_data.json; then
-       git add assets/stats.svg assets/activity.svg assets/breakdown.svg assets/cards tools/stats_data.json
+  && GH_TOKEN=$(gh auth token) node "$HOME/dev/upstream-card/bin/upstream-card.js" --user JROtto5 --svg assets/upstream-card.svg --exclude phoneburner \
+  && if ! git diff --quiet -- assets tools/stats_data.json || [ -n "$(git status --porcelain -- assets/upstream-card.svg)" ]; then
+       git add assets/stats.svg assets/activity.svg assets/breakdown.svg assets/cards assets/upstream-card.svg tools/stats_data.json
        git commit -qm "stats: daily refresh $DAY" && git push -q && echo "stats pushed"
      else echo "stats unchanged"; fi
 
