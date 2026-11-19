@@ -17,7 +17,7 @@
 | | |
 |---|---|
 | **crucible v0.4** | **[crucible](#crucible)**, the open-source AI PR reviewer I built: every finding has to survive an attempt to disprove it before anyone reads it |
-| **13 PRs merged upstream in 2 weeks** | In 6 open-source projects (three-mesh-bvh, Lutris, MapLibre, Supavisor, colyseus, MangoHud), plus 5 fixes maintainers built from my reports |
+| **15 PRs merged upstream in 2 weeks** | In 6 open-source projects (three-mesh-bvh, Lutris, MapLibre, Supavisor, colyseus, MangoHud), plus 5 fixes maintainers built from my reports |
 | **3,030 PRs · 88% merged** | The past year on GitHub: 6.2k commits across 41 repos, 242 active days |
 | **94k lines · 1,190+ commits** | **Dragon Front**: a browser FPS I built from an empty folder, solo, with AI pair-programming under my review |
 | **~5k-line authoritative server** | My own Node netcode: binary delta snapshots, client prediction, lag compensation, bot backfill |
@@ -69,6 +69,7 @@ pipx install git+https://github.com/JROtto5/crucible
   <a href="https://github.com/JROtto5/upstream-card"><img src="assets/upstream-card.svg" alt="Merged pull requests in other people's open-source projects, by project" width="495"></a>
 </p>
 
+- **[three-mesh-bvh](https://github.com/gkjohnson/three-mesh-bvh)**: made the BVH worker builds copy the geometry buffers by default instead of transferring them, so the mesh stays readable while a build runs and interleaved or normalized positions now build correctly in the workers (normalized ones used to be read as raw integers); the copy costs 44 ms on a 4M-triangle mesh and transferring stays available as an opt-in. Reworked to the maintainer's design over two review rounds; worker tests cover indexed, non-indexed, interleaved and normalized geometry. [#979](https://github.com/gkjohnson/three-mesh-bvh/pull/979), merged.
 - **[three-mesh-bvh](https://github.com/gkjohnson/three-mesh-bvh)**: matched `PointsBVH` and `LineSegmentsBVH` raycasting to three.js r188, which now scales the point/line hit threshold by the object's largest world-space scale; without it the BVH and three.js disagree on hits for non-uniformly scaled objects. Follows my three.js report on the same bug; master fails the 4 new tests under r188. [#983](https://github.com/gkjohnson/three-mesh-bvh/pull/983), merged.
 - **[MapLibre GL JS](https://github.com/maplibre/maplibre-gl-js)**: fixed Arabic and Persian map labels looking cut at every letter join when drawn with a thin text halo, a regression from the 5.24.0 single-pass halo speedup; only tiles that contain cursive-script labels go back to a separate halo pass, so Latin-only maps keep the faster path (worker parse bench within noise). New render test fails on main. [#9009](https://github.com/maplibre/maplibre-gl-js/pull/9009), merged, fixes [#8949](https://github.com/maplibre/maplibre-gl-js/issues/8949).
 - **[Supavisor](https://github.com/supabase/supavisor)**: made the Supabase connection pooler tell clients when it drops startup options it doesn't pass on to Postgres (for example `options=-c statement_timeout=…`), which used to be ignored silently: one NOTICE lists every unknown option, as the maintainer asked; reworked to his design in review (Elixir). [#1273](https://github.com/supabase/supavisor/pull/1273), merged, fixes [#1272](https://github.com/supabase/supavisor/issues/1272).
