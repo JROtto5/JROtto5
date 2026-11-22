@@ -17,7 +17,7 @@
 | | |
 |---|---|
 | **crucible v0.4** | **[crucible](#crucible)**, the open-source AI PR reviewer I built: every finding has to survive an attempt to disprove it before anyone reads it |
-| **16 PRs merged upstream in 2 weeks** | In 6 open-source projects (three-mesh-bvh, Lutris, MapLibre, Supavisor, colyseus, MangoHud), plus 5 fixes maintainers built from my reports |
+| **18 PRs merged upstream in under 3 weeks** | In 7 open-source projects (three-mesh-bvh, Lutris, MangoHud, MapLibre, Supavisor, colyseus, ProtonUp-Qt), plus 5 fixes maintainers built from my reports |
 | **3,030 PRs · 88% merged** | The past year on GitHub: 6.2k commits across 41 repos, 242 active days |
 | **94k lines · 1,190+ commits** | **Dragon Front**: a browser FPS I built from an empty folder, solo, with AI pair-programming under my review |
 | **~5k-line authoritative server** | My own Node netcode: binary delta snapshots, client prediction, lag compensation, bot backfill |
@@ -69,6 +69,7 @@ pipx install git+https://github.com/JROtto5/crucible
   <a href="https://github.com/JROtto5/upstream-card"><img src="assets/upstream-card.svg" alt="Merged pull requests in other people's open-source projects, by project" width="495"></a>
 </p>
 
+- **[MangoHud](https://github.com/flightlessmango/MangoHud)**: fixed `cpu_custom_temp_sensor=coretemp,temp1` reading the wrong sensor: the prefix match picked `temp10_input` (Core 8 on an i9-14900KF) over the package temperature in `temp1_input`; it now prefers the exact input name. [#2204](https://github.com/flightlessmango/MangoHud/pull/2204), merged.
 - **[ProtonUp-Qt](https://github.com/DavidoTek/ProtonUp-Qt)**: the main window now remembers its size, maximized state and (on X11) its position across restarts, closing a feature request open since 2024. Shared save/restore helpers for other windows, a maximized window keeps its normal size, and a stored size larger than the current screen is clamped; the test suite went from 162 to 171. [#669](https://github.com/DavidoTek/ProtonUp-Qt/pull/669), merged as submitted.
 - **[three-mesh-bvh](https://github.com/gkjohnson/three-mesh-bvh)**: fixed parallel BVH worker builds of geometry whose arrays are views into a larger buffer (as GLTFLoader produces): the workers got the rest of the buffer as extra vertices, or threw a RangeError when its length wasn't a multiple of 4. A new test matrix field covers it; 81 of its 576 cases failed before the fix, all pass after. [#1002](https://github.com/gkjohnson/three-mesh-bvh/pull/1002), merged.
 - **[three-mesh-bvh](https://github.com/gkjohnson/three-mesh-bvh)**: made the BVH worker builds copy the geometry buffers by default instead of transferring them, so the mesh stays readable while a build runs and interleaved or normalized positions now build correctly in the workers (normalized ones used to be read as raw integers); the copy costs 44 ms on a 4M-triangle mesh and transferring stays available as an opt-in. Reworked to the maintainer's design over two review rounds; worker tests cover indexed, non-indexed, interleaved and normalized geometry. [#979](https://github.com/gkjohnson/three-mesh-bvh/pull/979), merged.
