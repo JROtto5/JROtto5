@@ -17,7 +17,7 @@
 | | |
 |---|---|
 | **crucible v0.4** | **[crucible](#crucible)**, the open-source AI PR reviewer I built: every finding has to survive an attempt to disprove it before anyone reads it |
-| **20 PRs merged upstream in under 3 weeks** | In 7 open-source projects (three-mesh-bvh, Lutris, MangoHud, MapLibre, Supavisor, colyseus, ProtonUp-Qt), plus 5 fixes maintainers built from my reports |
+| **21 PRs merged upstream in under 3 weeks** | In 8 open-source projects (three-mesh-bvh, Lutris, MangoHud, MapLibre, Supavisor, colyseus, ProtonUp-Qt, GitPython), plus 5 fixes maintainers built from my reports |
 | **3,030 PRs · 88% merged** | The past year on GitHub: 6.2k commits across 41 repos, 242 active days |
 | **94k lines · 1,190+ commits** | **Dragon Front**: a browser FPS I built from an empty folder, solo, with AI pair-programming under my review |
 | **~5k-line authoritative server** | My own Node netcode: binary delta snapshots, client prediction, lag compensation, bot backfill |
@@ -69,6 +69,7 @@ pipx install git+https://github.com/JROtto5/crucible
   <a href="https://github.com/JROtto5/upstream-card"><img src="assets/upstream-card.svg" alt="Merged pull requests in other people's open-source projects, by project" width="495"></a>
 </p>
 
+- **[GitPython](https://github.com/gitpython-developers/GitPython)**: fixed `FetchInfo.note` always coming back empty after `Remote.fetch()`: Git writes the note (for example `(forced update)`) after two spaces, but the result pattern expected four, so the optional group silently matched nothing for years. Two tightened tests fail on the old code and pass with the fix under both the `cli` and `gix` backends. [#2351](https://github.com/gitpython-developers/GitPython/pull/2351), merged.
 - **[MangoHud](https://github.com/flightlessmango/MangoHud)**: fixed the FPS limit snapping back to its first value when switching presets: `toggle_preset` rebuilt the limiter and dropped the limit picked with `toggle_fps_limit`. It now keeps that choice when the new preset has the same `fps_limit` list (30 -> 60 -> 30 on master, 30 -> 60 -> 60 with the fix in a glxgears test). [#2203](https://github.com/flightlessmango/MangoHud/pull/2203), merged as submitted, fixes [#2065](https://github.com/flightlessmango/MangoHud/issues/2065).
 - **[MangoHud](https://github.com/flightlessmango/MangoHud)**: removed the empty strip under the last row of the `hud_compact` overlay: the window ended a fixed 11 px past the text even with zero padding. It now ends at the last line (plus room for descenders and the outline); the gap under the text went from 4/3/2 px to 0 at font sizes 16/24/64, other layouts unchanged. [#2201](https://github.com/flightlessmango/MangoHud/pull/2201), merged as submitted, fixes [#2111](https://github.com/flightlessmango/MangoHud/issues/2111).
 - **[MangoHud](https://github.com/flightlessmango/MangoHud)**: fixed `cpu_custom_temp_sensor=coretemp,temp1` reading the wrong sensor: the prefix match picked `temp10_input` (Core 8 on an i9-14900KF) over the package temperature in `temp1_input`; it now prefers the exact input name. [#2204](https://github.com/flightlessmango/MangoHud/pull/2204), merged.
