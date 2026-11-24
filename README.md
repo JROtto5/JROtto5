@@ -16,7 +16,7 @@
 
 | | |
 |---|---|
-| **crucible v0.4** | **[crucible](#crucible)**, the open-source AI PR reviewer I built: every finding has to survive an attempt to disprove it before anyone reads it |
+| **crucible v0.5** | **[crucible](#crucible)**, the open-source AI PR reviewer I built: every finding has to survive an attempt to disprove it before anyone reads it |
 | **26 PRs merged upstream in under 3 weeks** | In 8 open-source projects (three-mesh-bvh, Lutris, MangoHud, MapLibre, Supavisor, colyseus, ProtonUp-Qt, GitPython), plus 5 fixes maintainers built from my reports |
 | **3,030 PRs · 88% merged** | The past year on GitHub: 6.2k commits across 41 repos, 242 active days |
 | **94k lines · 1,190+ commits** | **Dragon Front**: a browser FPS I built from an empty folder, solo, with AI pair-programming under my review |
@@ -55,6 +55,7 @@
 | **v0.2** | Runs the project's own build and tests, learns its house style and maintainer rules from merged PRs, executes code to verify a finding, and checks PR readiness (linked issue, tests, description) |
 | **v0.3** | A labelled eval of planted bugs that every change is scored against, tiered verification (a cheap model first, the strong one on what survives: same recall, 24% cheaper), and incremental re-review of only what changed |
 | **v0.4** | Reads past the diff: the docs, comments and call sites elsewhere in the repo that a change affects. Verified nits for copied blocks, dead code and security hardening gaps. A warning when another change defines the same symbols or adds out-of-order migrations. A per-call model fallback when an account hits a spend limit |
+| **v0.5** | Ready for other people: a [GitHub Action](https://github.com/JROtto5/crucible#run-it-on-pull-requests-github-action) that reviews a pull request and posts the report as a comment, `crucible doctor` to say what a new install is missing, `crucible demo` for a 5-minute first review, and findings that also point at the other places a changed function is called |
 | **next** | API-design checks (a new pattern beside the repo's existing one), reliability (error paths, retries, cleanup), and one-command install |
 
 **A recent catch.** It flagged a signal race in Valve's gamescope reaper. The same window was in another contributor's fix for that bug; they reproduced it under gdb, fixed it and credited me ([`Reported-by`](https://github.com/ValveSoftware/gamescope/pull/2541#issuecomment-6690538950)).
