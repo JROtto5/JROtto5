@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="495" height="274" viewBox="0 0 495 274" role="img" aria-label="JROtto5&apos;s upstream contributions: 26 PRs merged into 8 other projects">
-<title>JROtto5&apos;s upstream contributions: 26 PRs merged into 8 other projects</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="495" height="274" viewBox="0 0 495 274" role="img" aria-label="JROtto5&apos;s upstream contributions: 28 PRs merged into 8 other projects">
+<title>JROtto5&apos;s upstream contributions: 28 PRs merged into 8 other projects</title>
 <style>
 text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
 .h{font-size:17px;font-weight:600}
@@ -11,12 +11,12 @@ text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,san
 </style>
 <rect x="0.5" y="0.5" width="494" height="273" rx="6" class="card"/>
 <text x="24" y="32" class="h">JROtto5&apos;s upstream contributions</text>
-<text x="24" y="52" class="sub">26 PRs merged into 8 other projects</text>
+<text x="24" y="52" class="sub">28 PRs merged into 8 other projects</text>
 <g transform="translate(24,78)"><circle cx="5" cy="-4" r="5" fill="#f1e05a"/><text x="18" y="0" class="repo">gkjohnson/three-mesh-bvh</text><text x="300" y="0" class="muted" text-anchor="end">★ 3.6k</text><rect x="320" y="-11" width="70" height="10" rx="3" class="bar"/><text x="447" y="0" class="count" text-anchor="end">9</text></g>
 <g transform="translate(24,104)"><circle cx="5" cy="-4" r="5" fill="#555555"/><text x="18" y="0" class="repo">flightlessmango/MangoHud</text><text x="300" y="0" class="muted" text-anchor="end">★ 9.3k</text><rect x="320" y="-11" width="47" height="10" rx="3" class="bar"/><text x="447" y="0" class="count" text-anchor="end">6</text></g>
-<g transform="translate(24,130)"><circle cx="5" cy="-4" r="5" fill="#3572A5"/><text x="18" y="0" class="repo">gitpython-developers/GitPython</text><text x="300" y="0" class="muted" text-anchor="end">★ 5.2k</text><rect x="320" y="-11" width="31" height="10" rx="3" class="bar"/><text x="447" y="0" class="count" text-anchor="end">4</text></g>
+<g transform="translate(24,130)"><circle cx="5" cy="-4" r="5" fill="#3572A5"/><text x="18" y="0" class="repo">gitpython-developers/GitPython</text><text x="300" y="0" class="muted" text-anchor="end">★ 5.2k</text><rect x="320" y="-11" width="47" height="10" rx="3" class="bar"/><text x="447" y="0" class="count" text-anchor="end">6</text></g>
 <g transform="translate(24,156)"><circle cx="5" cy="-4" r="5" fill="#3572A5"/><text x="18" y="0" class="repo">lutris/lutris</text><text x="300" y="0" class="muted" text-anchor="end">★ 10k</text><rect x="320" y="-11" width="23" height="10" rx="3" class="bar"/><text x="447" y="0" class="count" text-anchor="end">3</text></g>
 <g transform="translate(24,182)"><circle cx="5" cy="-4" r="5" fill="#3178c6"/><text x="18" y="0" class="repo">maplibre/maplibre-gl-js</text><text x="300" y="0" class="muted" text-anchor="end">★ 12k</text><rect x="320" y="-11" width="8" height="10" rx="3" class="bar"/><text x="447" y="0" class="count" text-anchor="end">1</text></g>
 <g transform="translate(24,208)"><circle cx="5" cy="-4" r="5" fill="#3178c6"/><text x="18" y="0" class="repo">colyseus/colyseus</text><text x="300" y="0" class="muted" text-anchor="end">★ 7.6k</text><rect x="320" y="-11" width="8" height="10" rx="3" class="bar"/><text x="447" y="0" class="count" text-anchor="end">1</text></g>
-<text x="24" y="258" class="muted">JavaScript · Python · C · TypeScript · Elixir</text>
+<text x="24" y="258" class="muted">Python · JavaScript · C · TypeScript · Elixir</text>
 </svg>
