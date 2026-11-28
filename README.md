@@ -17,7 +17,7 @@
 | | |
 |---|---|
 | **crucible v0.5** | **[crucible](#crucible)**, the open-source AI PR reviewer I built: every finding has to survive an attempt to disprove it before anyone reads it |
-| **36 PRs merged upstream** | In 11 open-source projects (three-mesh-bvh, three-gpu-pathtracer, Lutris, MangoHud, MapLibre, Supavisor, colyseus, ProtonUp-Qt, GitPython, RustNet, pnpm), plus 5 fixes maintainers built from my reports |
+| **37 PRs merged upstream** | In 12 open-source projects (three-mesh-bvh, three-gpu-pathtracer, Lutris, MangoHud, MapLibre, Supavisor, colyseus, ProtonUp-Qt, GitPython, RustNet, pnpm, tox), plus 5 fixes maintainers built from my reports |
 | **3,030 PRs · 88% merged** | The past year on GitHub: 6.2k commits across 41 repos, 242 active days |
 | **94k lines · 1,190+ commits** | **Dragon Front**: a browser FPS I built from an empty folder, solo, with AI pair-programming under my review |
 | **~5k-line authoritative server** | My own Node netcode: binary delta snapshots, client prediction, lag compensation, bot backfill |
@@ -70,6 +70,7 @@ pipx install git+https://github.com/JROtto5/crucible
   <a href="https://github.com/JROtto5/upstream-card"><img src="assets/upstream-card.svg" alt="Merged pull requests in other people's open-source projects, by project" width="495"></a>
 </p>
 
+- **[tox](https://github.com/tox-dev/tox)** (Python): fixed the override how-to, whose `testenv:3.13.package=editable` example is the `tox.ini` spelling and is silently ignored by `tox.toml` and `pyproject.toml` projects; it now shows the key for all three config formats. [#4464](https://github.com/tox-dev/tox/pull/4464), merged as submitted.
 - **[three-gpu-pathtracer](https://github.com/gkjohnson/three-gpu-pathtracer)** (WebGPU): fixed energy loss on anisotropic materials by looking up the multiscatter compensation at the RMS of the two roughness alphas instead of the base roughness. In the white furnace test a fully anisotropic metal went from 0.611 to 1.045 of the environment (1.0 is ideal), isotropic materials unchanged, no new lookup tables. [#1016](https://github.com/gkjohnson/three-gpu-pathtracer/pull/1016), merged.
 - **[three-gpu-pathtracer](https://github.com/gkjohnson/three-gpu-pathtracer)** (WebGPU): the clearcoat lobe is now left out of the WebGPU kernels when no material uses it, the second guard from the maintainer's list; megakernel 38.4 to 44.4 samples/s without clearcoat, renders identical pixel for pixel. [#1018](https://github.com/gkjohnson/three-gpu-pathtracer/pull/1018), merged.
 - **[three-gpu-pathtracer](https://github.com/gkjohnson/three-gpu-pathtracer)** (WebGPU): left the fog code out of the WebGPU path tracing kernels when no material uses fog; features are now detected per scene and the kernels rebuild only when the set changes. The megakernel went from 28.9 to 38.5 samples/s on a fog-free scene, with renders identical to main pixel for pixel. The maintainer asked for the same guard on six more material features next. [#1010](https://github.com/gkjohnson/three-gpu-pathtracer/pull/1010), merged.
