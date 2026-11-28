@@ -17,7 +17,7 @@
 | | |
 |---|---|
 | **crucible v0.5** | **[crucible](#crucible)**, the open-source AI PR reviewer I built: every finding has to survive an attempt to disprove it before anyone reads it |
-| **37 PRs merged upstream** | In 12 open-source projects (three-mesh-bvh, three-gpu-pathtracer, Lutris, MangoHud, MapLibre, Supavisor, colyseus, ProtonUp-Qt, GitPython, RustNet, pnpm, tox), plus 5 fixes maintainers built from my reports |
+| **38 PRs merged upstream** | In 12 open-source projects (three-mesh-bvh, three-gpu-pathtracer, Lutris, MangoHud, MapLibre, Supavisor, colyseus, ProtonUp-Qt, GitPython, RustNet, pnpm, tox), plus 5 fixes maintainers built from my reports |
 | **3,030 PRs · 88% merged** | The past year on GitHub: 6.2k commits across 41 repos, 242 active days |
 | **94k lines · 1,190+ commits** | **Dragon Front**: a browser FPS I built from an empty folder, solo, with AI pair-programming under my review |
 | **~5k-line authoritative server** | My own Node netcode: binary delta snapshots, client prediction, lag compensation, bot backfill |
